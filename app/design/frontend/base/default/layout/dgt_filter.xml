@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+@category    DGT
+@package     DGT_Filter
+@copyright   Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+@license     GNU General Public License version 2 or later
+@author      dragontheme.com
+@email       support@dragontheme.com
+-->
+<layout>
+    <catalog_category_layered>
+        <reference name="head">
+            <!--action method="addJs" ifconfig="dgtfilter/general/bar">
+                <script>dgt/extensions/jquery/jquery-1.11.1.min.js</script>
+            </action-->
+            <action method="addJs" ifconfig="dgtfilter/general/bar">
+                <script>dgt/extensions/jquery/plugins/nprogress/nprogress.js</script>
+            </action>
+            <action method="addItem" ifconfig="dgtfilter/general/bar">
+                <type>js_css</type>
+                <css>dgt/extensions/jquery/plugins/nprogress/nprogress.css</css>
+            </action>
+            <action method="addJs" ifconfig="dgtfilter/catalog/enable">
+                <script>dgt/extensions/uri/URI.min.js</script>
+            </action>
+            <action method="addJs" ifconfig="dgtfilter/catalog/enable">
+                <script>dgt/filter/filter.js</script>
+            </action>
+        </reference>
+        <reference name="after_body_start">
+            <block type="core/template" name="dgt_filter_js" as="dgt_filter_js">
+                <action method="setTemplate" ifconfig="dgtfilter/catalog/enable">
+                    <file>dgt/filter/js.phtml</file>
+                </action>
+            </block>
+        </reference>
+    </catalog_category_layered>
+
+    <catalogsearch_result_index>
+        <reference name="head">
+            <!--action method="addJs" ifconfig="dgtfilter/general/bar">
+                <script>dgt/extensions/jquery/jquery-1.11.1.min.js</script>
+            </action-->
+            <action method="addJs" ifconfig="dgtfilter/general/bar">
+                <script>dgt/extensions/jquery/plugins/nprogress/nprogress.js</script>
+            </action>
+            <action method="addItem" ifconfig="dgtfilter/general/bar">
+                <type>js_css</type>
+                <css>dgt/extensions/jquery/plugins/nprogress/nprogress.css</css>
+            </action>
+            <action method="addJs" ifconfig="dgtfilter/catalogsearch/enable">
+                <script>dgt/extensions/uri/URI.min.js</script>
+            </action>
+            <action method="addJs" ifconfig="dgtfilter/catalogsearch/enable">
+                <script>dgt/filter/filter.js</script>
+            </action>
+        </reference>
+        <reference name="after_body_start">
+            <block type="core/template" name="dgt_filter_js" as="dgt_filter_js">
+                <action method="setTemplate" ifconfig="dgtfilter/catalogsearch/enable">
+                    <file>dgt/filter/js.phtml</file>
+                </action>
+            </block>
+        </reference>
+    </catalogsearch_result_index>
+</layout>

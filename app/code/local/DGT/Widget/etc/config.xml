@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category    DGT
+* @package     DGT_Widget
+* Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+* @license     GNU General Public License version 2 or later
+* @author      dragontheme.com
+* @email       support@dragontheme.com
+*/
+-->
+<config>
+    <modules>
+        <DGT_Widget>
+            <version>2.0</version>
+        </DGT_Widget>
+    </modules>
+
+    <frontend>
+        <routers>
+            <dgtwidget>
+                <use>standard</use>
+                <args>
+                    <module>DGT_Widget</module>
+                    <frontName>dgtwidget</frontName>
+                </args>
+            </dgtwidget>
+        </routers>
+        <layout>
+            <updates>
+                <dgtwidget>
+                    <file>dgt_widget.xml</file>
+                </dgtwidget>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <models>
+            <dgtwidget>
+                <class>DGT_Widget_Model</class>
+            </dgtwidget>
+        </models>
+        <blocks>
+            <dgtwidget>
+                <class>DGT_Widget_Block</class>
+            </dgtwidget>
+        </blocks>
+        <helpers>
+            <dgtwidget>
+                <class>DGT_Widget_Helper</class>
+            </dgtwidget>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+            <dgtwidget>
+                <use>admin</use>
+                <args>
+                    <module>DGT_Widget</module>
+                    <frontName>dgtwidget</frontName>
+                </args>
+            </dgtwidget>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <dgtwidget>
+                    <file>dgt_widget.xml</file>
+                </dgtwidget>
+            </updates>
+        </layout>
+        <cms>
+            <browser>
+                <extensions>
+                    <media_allowed>
+                        <mp4>1</mp4>
+                        <webm>1</webm>
+                    </media_allowed>
+                </extensions>
+            </browser>
+        </cms>
+    </adminhtml>
+</config>

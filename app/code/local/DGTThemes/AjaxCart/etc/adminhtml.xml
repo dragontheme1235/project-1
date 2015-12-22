@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category     Mono
+ * @package      DGT_AjaxCart
+ *
+ * @copyright    Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license      GNU General Public License version 2 or later;
+ * @author       dragontheme.com
+ * @email        support@dragontheme.com
+ *
+ */
+-->
+<config>
+    <acl>
+	<resources>
+	    <all>
+			<title>Allow Everything</title>
+		</all>
+	    <admin>
+            <children>
+                <system>
+                <children>
+                    <config>
+                        <children>
+                            <ajaxcart>
+                            <title>Ajax Cart</title>
+                            </ajaxcart>
+                        </children>
+                    </config>
+                </children>
+                </system>
+                <dgtthemes translate="title" module="ajaxcart">
+                    <title>DGTThemes</title>
+                    <sort_order>71</sort_order>
+                    <children>
+                        <ajaxcart translate="title" module="ajaxcart">
+                            <title>Ajax Cart</title>
+                            <children>
+                                <configuration translate="title" module="ajaxcart">
+                                    <title>AjaxCart Settings</title>
+                                    <sort_order>1</sort_order>
+                                    <action>adminhtml/system_config/edit/section/ajaxcart</action>
+                                </configuration>
+                            </children>
+                        </ajaxcart>
+                    </children>
+                </dgtthemes>
+            </children>
+	    </admin>
+	</resources>
+    </acl>
+</config>

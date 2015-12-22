@@ -1,0 +1,28 @@
+<!-- navigation BOF -->
+
+<div class="dgt-menu dgt-effect-slide">
+    <div class="dgt-menu-active">
+        <i class="fa fa-compress"></i>
+        <span class="title-canvas"><?php echo $this->__('Menu');?></span>
+        <span class="close-canvas"><i class="fa fa-close"></i></span>
+	</div>
+    <div class="sidebar">
+        <ul id="dgt_accordionmenu" class="nav-accordion nav-mobile-accordion">
+            <li><a href="<?php echo $this->getBaseUrl(); ?>"><?php echo $this->__('Home'); ?></a></li>
+            <?php echo $this->renderCategoriesMenuHtml(TRUE, FALSE, 0, 'level-top'); ?>
+        </ul>
+        <script type="text/javascript">
+            $dgt(document).ready(function() {
+                $dgt("#dgt_accordionmenu").dgtAccordionMenu({
+                    accordion:true,
+                    speed: 400,
+                    closedSign: 'collapse',
+                    openedSign: 'expand',
+                    mouseType: 0,
+                    easing: 'easeInOutQuad'
+                });
+            });
+        </script>
+    </div>
+</div>
+<div class="site-overlay"></div>

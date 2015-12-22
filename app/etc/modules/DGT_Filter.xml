@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+@category    DGT
+@package     DGT_Filter
+@copyright   Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+@license     GNU General Public License version 2 or later
+@author      dragontheme.com
+@email       support@dragontheme.com
+-->
+<config>
+    <modules>
+        <DGT_Filter>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <DGT_Extensions/>
+            </depends>
+        </DGT_Filter>
+    </modules>
+</config>

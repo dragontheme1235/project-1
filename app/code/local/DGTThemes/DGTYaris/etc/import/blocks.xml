@@ -1,0 +1,112 @@
+<root><blocks><cms_block><title>DGT Slider Home Page 1</title><identifier>dgt-slider-home-page-1</identifier><content><![CDATA[<div class="item widget-slide"><a class="dgt-slider-1" title="" href="#"><img class="img-responsive" src="{{media url="wysiwyg/dgtthemes/slider/img-slider-tech-1.jpg"}}" alt="Slider Tech 1" /></a>
+<div class="slider-content style-center">
+<p class="small-title">enjoy</p>
+<h2 class="large-title">15 % Off</h2>
+<p class="small-caption">New Collection Macbook</p>
+<a class="read-more" href="/camera-camcoders.html">Shop now</a></div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Slider Home Page  2</title><identifier>dgt-slider-home-page-2</identifier><content><![CDATA[<div class="item widget-slide"><a class="dgt-slider-1" title="" href="#"><img class="img-responsive" src="{{media url="wysiwyg/dgtthemes/slider/img-slider-tech-2.jpg"}}" alt="Slider Tech 1" /></a>
+<div class="slider-content style-right">
+<p class="small-title">enjoy</p>
+<h2 class="large-title">20 % Off</h2>
+<p class="small-caption">Sale Off Imac 2014</p>
+<a class="read-more" href="/camera-camcoders.html">Shop now</a></div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>Custom Menu</title><identifier>custom_menu</identifier><content><![CDATA[<div class="row">
+<div class="col-sm-4 col-md-4">
+<div class="static-inner"><em class="icon-circle fa fa-apple"></em>
+<h3 class="static-title"><a href="#">Responsive Layout</a></h3>
+<p class="static-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+</div>
+</div>
+<div class="col-sm-4 col-md-4">
+<div class="static-inner"><em class="icon-circle fa fa-plane"></em>
+<h3 class="static-title"><a href="#">Ajax Cart</a></h3>
+<p class="static-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+</div>
+</div>
+<div class="col-sm-4 col-md-4">
+<div class="static-inner"><em class="icon-circle fa fa-cogs"></em>
+<h3 class="static-title"><a href="#">Easy Config</a></h3>
+<p class="static-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+</div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>Our Brands</title><identifier>our_brands</identifier><content><![CDATA[Content All Brand]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Static Block Main Content</title><identifier>dgt_static_main</identifier><content><![CDATA[<p class="dgt-img-hover"><a href="#"><img src="{{media url="wysiwyg/dgtthemes/static/img-static-maincontent-1.jpg"}}" alt="" /> <span class="img-hover"><em class="fa fa-plus"><span class="hide">image hover</span></em> </span></a></p>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Static Block Newletter</title><identifier>dgt_static_newletter</identifier><content><![CDATA[<div class="dgt-newletter">{{block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/subscribe.phtml"}}</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Static Block Footer</title><identifier>dgt_static_footer</identifier><content><![CDATA[<div class="dgt-footer-static dgt-footer-static-1">
+<h3 class="dgt-footer-static-title">STATIC BLOCK</h3>
+<div class="dgt-footer-static-content">
+<p>Lorem ipsum dolor sit amet, consect<br /> etur adipiscing elit. Nullam mattis co<br /> nvallis imperdiet. Ut lobortis, dolor ut inte<br /> .rdum dictum, metus leo posuere orci, nec imperdiecmus eu.</p>
+<div class="dgt-social">
+<ul>
+<li><a class="facebook" href="#"><em class="fa-facebook-f fa"><span class="hide">facebook</span></em></a></li>
+<li><a class="twitter" href="#"><em class="fa-twitter fa"><span class="hide">twitter</span></em></a></li>
+<li><a class="youtube" href="#"><em class="fa-youtube fa"><span class="hide">youtube</span></em></a></li>
+<li><a class="instagram" href="#"><em class="fa-instagram fa"><span class="hide">instagram</span></em></a></li>
+</ul>
+</div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Static Block Footer My Account</title><identifier>dgt_static_footer_my_account</identifier><content><![CDATA[<div class="dgt-footer-static dgt-footer-static-1">
+<h3 class="dgt-footer-static-title">MY ACCOUNT</h3>
+<div class="dgt-footer-static-content">
+<div class="dgt-footer-link">
+<ul>
+<li><a href="#">My Orders</a></li>
+<li><a href="#">My Credit Slips</a></li>
+<li><a href="#">My Addresses</a></li>
+<li><a href="#">My Personal Info</a></li>
+</ul>
+</div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Static Block Footer Information</title><identifier>dgt_static_footer_information</identifier><content><![CDATA[<div class="dgt-footer-static dgt-footer-static-1">
+<h3 class="dgt-footer-static-title">INFORMATION</h3>
+<div class="dgt-footer-static-content">
+<div class="dgt-footer-link">
+<ul>
+<li><a href="#">Specials</a></li>
+<li><a href="#">New Products</a></li>
+<li><a href="#">Best Sellers</a></li>
+<li><a href="#">Our Stores</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Sitemap</a></li>
+</ul>
+</div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Static Block Footer Why Buy From Us</title><identifier>dgt_static_footer_from_us</identifier><content><![CDATA[<div class="dgt-footer-static dgt-footer-static-1">
+<h3 class="dgt-footer-static-title">WHY BUY FROM US</h3>
+<div class="dgt-footer-static-content">
+<div class="dgt-footer-link">
+<ul>
+<li><a href="#">Orders &amp; Returns</a></li>
+<li><a href="#">Search Terms</a></li>
+<li><a href="#">Advance Search</a></li>
+<li><a href="#">Affiliates</a></li>
+<li><a href="#">Group Sales</a></li>
+</ul>
+</div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Static Block Footer Store Information</title><identifier>dgt_static_footer_store_information</identifier><content><![CDATA[<div class="dgt-footer-static dgt-footer-static-1">
+<h3 class="dgt-footer-static-title">STORE INFORMATION</h3>
+<div class="dgt-footer-static-content">
+<p class="dgt-footer-address">My Company, 42 Avenue Des Champs Elys&eacute;es 75000 Paris France<br /> Call Us Now Toll Free: 0123-456-789<br /> Email: <a href="mailto:support@dragontheme.com" target="_top">Support@dragontheme.com</a></p>
+<div class="dgt-footer-partner">
+<ul>
+<li><a href="#"><img src="{{media url="wysiwyg/dgtthemes/static/master-card.png"}}" alt="" /></a></li>
+<li><a href="#"><img src="{{media url="wysiwyg/dgtthemes/static/master-card-security.png"}}" alt="" /></a></li>
+<li><a href="#"><img src="{{media url="wysiwyg/dgtthemes/static/paypal.png"}}" alt="" /></a></li>
+<li><a href="#"><img src="{{media url="wysiwyg/dgtthemes/static/visa-verify.png"}}" alt="" /></a></li>
+<li><a href="#"><img src="{{media url="wysiwyg/dgtthemes/static/very-sign.png"}}" alt="" /></a></li>
+<li><a href="#"><img src="{{media url="wysiwyg/dgtthemes/static/visa.png"}}" alt="" /></a></li>
+</ul>
+</div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>New Products</title><identifier>dgt_static_new_product_menu</identifier><content><![CDATA[{{widget type="catalog/product_widget_new" display_type="all_products" products_count="4" template="catalog/product/widget/new/content/new_grid.phtml"}}]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Static Block Sidebar</title><identifier>dgt_static_sidebar</identifier><content><![CDATA[<p class="dgt-img-hover"><a href="#"><img src="{{media url="wysiwyg/dgtthemes/static/img-static-sidebar_1.jpg"}}" alt="" />  <span class="img-hover"><em class="fa fa-plus"><span class="hide">image hover</span></em> </span></a></p>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Static Block Main Content Second</title><identifier>dgt_static_main_second</identifier><content><![CDATA[<div class="row">
+<div class="col-sm-8 col-md-8">
+<p class="dgt-img-hover"><a href="#"><img src="{{media url="wysiwyg/dgtthemes/static/img-static-mainbottom-1.jpg"}}" alt="" /> <span class="img-hover"><em class="fa fa-plus"><span class="hide">image hover</span></em> </span></a></p>
+</div>
+<div class="col-sm-4 col-md-4">
+<p class="dgt-img-hover"><a href="#"><img src="{{media url="wysiwyg/dgtthemes/static/img-static-mainbottom-2.jpg"}}" alt="" /> <span class="img-hover"><em class="fa fa-plus"><span class="hide">image hover</span></em> </span></a></p>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>DGT Slider Home Page  3</title><identifier>dgt-slider-home-page-3</identifier><content><![CDATA[<div class="item widget-slide"><a class="dgt-slider-1" title="" href="#"><img class="img-responsive" src="{{media url="wysiwyg/dgtthemes/slider/img-slider-tech-3.jpg"}}" alt="Slider Tech 1" /></a>
+<div class="slider-content style-left">
+<p class="small-title">enjoy</p>
+<h2 class="large-title">35 % Off</h2>
+<p class="small-caption">Apple Accessories</p>
+<a class="read-more" href="/camera-camcoders.html">Shop now</a></div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block></blocks></root>

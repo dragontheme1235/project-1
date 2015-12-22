@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category    DGT
+* @package     DGT_Extensions
+* Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+* @license     GNU General Public License version 2 or later
+* @author      dragontheme.com
+* @email       support@dragontheme.com
+*/
+-->
+<config>
+    <modules>
+        <DGT_Extensions>
+            <version>1.0</version>
+        </DGT_Extensions>
+    </modules>
+
+    <global>
+        <blocks>
+            <dgtext>
+                <class>DGT_Extensions_Block</class>
+            </dgtext>
+            <adminhtml>
+                <rewrite>
+                    <cms_wysiwyg_images_content>DGT_Extensions_Block_Adminhtml_Cms_Wysiwyg_Images_Content</cms_wysiwyg_images_content>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <dgtext>
+                <class>DGT_Extensions_Helper</class>
+            </dgtext>
+            <cms>
+                <rewrite>
+                    <wysiwyg_images>DGT_Extensions_Helper_Cms_Wysiwyg_Images</wysiwyg_images>
+                </rewrite>
+            </cms>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+            <dgtadmin>
+                <use>admin</use>
+                <args>
+                    <module>DGT_Extensions</module>
+                    <frontName>dgtadmin</frontName>
+                </args>
+            </dgtadmin>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <DGT_Extensions before="Mage_Adminhtml">DGT_Extensions_Adminhtml</DGT_Extensions>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

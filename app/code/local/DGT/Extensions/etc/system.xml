@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category    DGT
+* @package     DGT_Extensions
+* Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+* @license     GNU General Public License version 2 or later
+* @author      dragontheme.com
+* @email       support@dragontheme.com
+*/
+-->
+<config>
+    <tabs>
+        <dgtext translate="label">
+            <label>DGT EXTENSIONS</label>
+            <sort_order>100</sort_order>
+        </dgtext>
+    </tabs>
+</config>

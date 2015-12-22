@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category    DGT
+* @package     DGT_Search
+* Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+* @license     GNU General Public License version 2 or later
+* @author      dragontheme.com
+* @email       support@dragontheme.com
+*/
+-->
+<config>
+    <modules>
+        <DGT_Search>
+            <version>0.0.1</version>
+        </DGT_Search>
+    </modules>
+
+    <global>
+        <blocks>
+            <dgtsearch>
+                <class>DGT_Search_Block</class>
+            </dgtsearch>
+        </blocks>
+        <helpers>
+            <dgtsearch>
+                <class>DGT_Search_Helper</class>
+            </dgtsearch>
+        </helpers>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <dgtsearch>
+                    <file>dgt_search.xml</file>
+                </dgtsearch>
+            </updates>
+        </layout>
+    </frontend>
+</config>

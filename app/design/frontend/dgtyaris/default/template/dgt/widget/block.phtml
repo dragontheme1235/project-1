@@ -1,0 +1,47 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<?php
+$blocks = $this->getBlocks();
+$id = 'dgt-widget-'. rand(123456, 7891011);
+$scroll = $this->getConfig('scroll');
+$title = $this->getConfig('widget_title');
+$parallax_full = $this->getConfig('parallax_full');
+$_class = ($scroll) ? 'has-carousel' : 'no-carousel';
+if($parallax_full == 1){
+    $_class .= ' dgt-parallax parallax-full';
+}
+?>
+<div class="dgt-widget <?php echo $_class . ' ' . $this->getConfig('classes'); ?> rit-widget-class"
+     id="<?php echo $id ?>"
+     data-animation="<?php echo $this->getConfig('animation'); ?>"
+     data-parallax="<?php echo $this->getConfig('parallax') ?>"
+     data-carousel="<?php echo $this->getConfig('carousel') ?>"
+     data-carouselConfig="null"
+     data-kenburns="<?php echo $this->getConfig('kenburns') ?>">
+    <div class="block block-widget row clearfix">
+        <?php if ($title): ?>
+            <div class="block-title">
+                <strong><span><?php echo $title ?></span></strong>
+            </div>
+        <?php endif ?>
+        <?php if ($scroll == 1) : ?>
+        <div class="owl-carousel">
+            <?php endif; ?>
+            <?php foreach ($blocks as $block): ?>
+                <div class="<?php echo $block['class'] ?>">
+                    <?php echo $block['content'] ?>
+                </div>
+            <?php endforeach ?>
+        <?php if ($scroll == 1) : ?>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>

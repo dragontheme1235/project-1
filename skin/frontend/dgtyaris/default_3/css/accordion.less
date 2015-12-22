@@ -1,0 +1,326 @@
+/* ================= Include Global ===================== */
+@import "mixins";
+@import "variables";
+
+/* ================= STYLE DRILLMENU ==================== */
+.dgt-drillmenu {
+  float: left !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+.nav-accordion {
+  width: 100%;
+}
+
+ul {
+  &.nav-accordion {
+    line-height: 0.5em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    &.nav-mobile-accordion {
+      li {
+        border: none;
+      }
+    }
+    ul {
+      display: none;
+      margin: 0;
+      padding: 0;
+      li {
+        clear: both;
+        margin: 0;
+        padding: 0;
+        a {
+          font-size: @baseFontSize - 2;
+          outline: none;
+          padding-left: 15px;
+          text-transform: capitalize;
+        }
+      }
+      ul {
+        li {
+          a {
+            margin-left: 10px;
+          }
+        }
+        ul li a {
+          margin-left: 20px;
+        }
+      }
+    }
+    li {
+      position: relative;
+      border-top: 1px solid #e4e6e7;
+      &.first {
+        border-top: none;
+      }
+      &.active {
+        &:hover a {
+          background-color: transparent;
+        }
+        a {
+          color: #f46467;
+        }
+        ul {
+          li {
+            a {
+              color: #000;
+              &:hover {
+                color: #CB2822;
+              }
+            }
+            &.active li a {
+              color: #000;
+              &:hover {
+                color: #CB2822;
+              }
+            }
+          }
+        }
+      }
+      a {
+        display: block;
+        font-size: @baseFontSize;
+        line-height: 35px;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        text-decoration: none;
+        text-shadow: none;
+        text-transform: capitalize;
+        color: #5c5c5c;
+        outline: medium none;
+        .transition(all 0.2s ease 0s);
+      }
+      span {
+        &.expand, &.collapse {
+          cursor: pointer;
+          display: block;
+          font-size: 0;
+          right: 0;
+          position: absolute;
+          top: 6px;
+          z-index: 1;
+          .square(24px);
+          line-height: @baseLineHeight + 4;
+          text-align: center;
+          &:before{
+            font-family: 'FontAwesome';
+            font-size: @baseFontSize - 4;
+          }
+          &:hover{
+            background-color: #cfcfcf;
+          }
+        }
+        &.collapse {
+          &:before{
+            content: "\f067";
+          }
+        }
+        &.expand {
+          &:before{
+            content: "\f068";
+          }
+          &.collapse{
+            &:before{
+              content: "\f067";
+            }
+          }
+        }
+      }
+      &.level0 {
+        > a {
+          > span {
+            > .cat-label {
+              position: inherit;
+            }
+            > .pin-bottom:before {
+              position: inherit;
+              right: 6px;
+              top: 22px;
+              .square(0);
+              content: "";
+              border-style: solid;
+              border-width: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+ul.detail-parent {
+  margin: 0px;
+  padding: 0 0 0 17px;
+}
+
+/**END STYLE DRILLMENU**/
+/*Sidebar Menu dgt-effect-slide dgt-menu-open*/
+.dgt-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.dgt-wrapper {
+  position: relative;
+  left: 0;
+  z-index: 99;
+  height: 100%;
+  .transition(transform 0.5s);
+}
+.dgt-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  visibility: hidden;
+  .size(320px, 100%);
+  background: #2d2d2d;
+  .transition(all 0.5s linear 0s);
+  overflow: auto;
+  a {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    color: #FFFFFF;
+    &:hover {
+      background-color: #3F3F3F;
+      color: #FFFFFF;
+    }
+  }
+  ul.nav-accordion li {
+    li {
+      a {
+        padding-left: 30px;
+      }
+      li {
+        a {
+          padding-left: 45px;
+          font-size: @baseFontSize - 1;
+        }
+        li a {
+          padding-left: 60px;
+          font-size: @baseFontSize - 2;
+        }
+      }
+    }
+    ul li a {
+      width: 100%;
+    }
+    a {
+      padding-left: 15px;
+      color: #FFFFFF;
+      font-size: @baseFontSize;
+      margin: 0;
+    }
+    span{
+      &.collapse, &.expand {
+        top: 9px;
+        right: 15px;
+      }
+    }
+  }
+  .dgt-menu-active {
+    display: block;
+    overflow: hidden;
+    border-bottom: 1px solid #474747;
+    padding: 0 15px;
+    background-color: #1F1F1F;
+    cursor: pointer;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    color: #fff;
+    .navbar-toggle {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      line-height: 18px;
+    }
+  }
+  .dgt-menu-title {
+    float: left;
+    h3 {
+      color: #fff;
+      margin: 12px 0;
+      padding: 0px;
+      text-transform: uppercase;
+      font-size: @baseFontSize;
+    }
+  }
+  ul.nav-accordion {
+    li {
+      a{
+        height: 44px;
+        line-height: 44px;
+      }
+    }
+  }
+}
+
+.close-canvas{
+  float: right;
+  .fa{
+    vertical-align: 3px;
+  }
+}
+
+.title-canvas {
+  color: #FFFFFF;
+  font-size: @baseFontSize + 6;
+  margin-left: 9px;
+  text-transform: uppercase;
+}
+
+.dgt-canvas-button{
+  .fa{
+    font-size: @baseFontSize + 16px;
+    cursor: pointer;
+    margin-bottom: 13px;
+  }
+}
+
+.dgt-menu-active .dgt-close-canvas {
+  border: medium none;
+  float: right;
+  .size(17px, 16px);
+}
+
+.navbar-inverse {
+  background-color: inherit;
+  border-color: transparent !important;
+}
+.site-overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  .opacity(0);
+  visibility: hidden;
+  background-color: #000;
+  .transition(transform 0.5s ease 0s);
+  z-index: 100;
+}
+
+/* Effect:Slide along */
+.dgt-effect-slide{
+  &.dgt-menu-open {
+    .dgt-wrapper {
+      -webkit-transform: translate3d(320px, 0, 0);
+      transform: translate3d(320px, 0, 0);
+    }
+    .dgt-effect-slide.dgt-menu {
+      visibility: visible;
+      .transition(transform 0.5s ease 0s);
+      .transform(translate3d(0, 0, 0));
+    }
+    .site-overlay{
+      .opacity(60);
+      visibility: visible;
+      .transform(translate3d(320px, 0px, 0px));
+    }
+  }
+  &.dgt-menu {
+    .transform(translate3d(-100%, 0, 0));
+  }
+}

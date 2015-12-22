@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category    DGT
+* @package     DGT_Widget
+* Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+* @license     GNU General Public License version 2 or later
+* @author      dragontheme.com
+* @email       support@dragontheme.com
+*/
+-->
+<layout>
+    <adminhtml_widget_instance_edit>
+        <reference name="head">
+            <action method="addItem"><type>js_css</type><script>dgt/extensions/jquery/css/no-theme/jquery-ui-1.10.3.min.css</script></action>
+            <action method="addItem"><type>js_css</type><css>prototype/windows/themes/default.css</css></action>
+            <action method="addItem"><type>js_css</type><css>dgt/extensions/jquery/plugins/owl-carousel/effects.css</css></action>
+            <action method="addItem"><type>skin_css</type><css>lib/prototype/windows/themes/magento.css</css></action>
+            <action method="addItem"><type>skin_css</type><css>dgt/widget/style.css</css></action>
+
+            <action method="addJs"><script>dgt/extensions/jquery/jquery-1.11.1.min.js</script></action>
+            <action method="addJs"><script>dgt/extensions/jquery/jquery-ui-1.10.3.min.js</script></action>
+            <action method="addJs"><script>lib/flex.js</script></action>
+            <action method="addJs"><script>lib/FABridge.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+            <action method="addJs"><script>dgt/extensions/browser.js</script></action>
+            <action method="addJs"><script>prototype/window.js</script></action>
+
+            <action method="addJs"><script>dgt/widget/video.js</script></action>
+            <action method="addJs"><script>dgt/widget/widget.js</script></action>
+            <action method="addJs"><script>dgt/widget/frontend.js</script></action>
+        </reference>
+    </adminhtml_widget_instance_edit>
+    <adminhtml_cms_page_edit>
+        <reference name="head">
+            <action method="addItem"><type>js_css</type><script>dgt/extensions/jquery/css/no-theme/jquery-ui-1.10.3.min.css</script></action>
+            <action method="addItem"><type>js_css</type><css>prototype/windows/themes/default.css</css></action>
+            <action method="addItem"><type>js_css</type><css>dgt/extensions/jquery/plugins/owl-carousel/effects.css</css></action>
+            <action method="addItem"><type>skin_css</type><css>lib/prototype/windows/themes/magento.css</css></action>
+            <action method="addItem"><type>skin_css</type><css>dgt/widget/style.css</css></action>
+
+            <action method="addJs"><script>dgt/extensions/jquery/jquery-1.11.1.min.js</script></action>
+            <action method="addJs"><script>dgt/extensions/jquery/jquery-ui-1.10.3.min.js</script></action>
+            <action method="addJs"><script>lib/flex.js</script></action>
+            <action method="addJs"><script>lib/FABridge.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+            <action method="addJs"><script>dgt/extensions/browser.js</script></action>
+            <action method="addJs"><script>prototype/window.js</script></action>
+
+            <action method="addJs"><script>dgt/widget/video.js</script></action>
+            <action method="addJs"><script>dgt/widget/widget.js</script></action>
+            <action method="addJs"><script>dgt/widget/frontend.js</script></action>
+        </reference>
+    </adminhtml_cms_page_edit>
+    <adminhtml_cms_block_edit>
+        <reference name="head">
+            <action method="addItem"><type>js_css</type><script>dgt/extensions/jquery/css/no-theme/jquery-ui-1.10.3.min.css</script></action>
+            <action method="addItem"><type>js_css</type><css>prototype/windows/themes/default.css</css></action>
+            <action method="addItem"><type>js_css</type><css>dgt/extensions/jquery/plugins/owl-carousel/effects.css</css></action>
+            <action method="addItem"><type>skin_css</type><css>lib/prototype/windows/themes/magento.css</css></action>
+            <action method="addItem"><type>skin_css</type><css>dgt/widget/style.css</css></action>
+
+            <action method="addJs"><script>dgt/extensions/jquery/jquery-1.11.1.min.js</script></action>
+            <action method="addJs"><script>dgt/extensions/jquery/jquery-ui-1.10.3.min.js</script></action>
+            <action method="addJs"><script>lib/flex.js</script></action>
+            <action method="addJs"><script>lib/FABridge.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+            <action method="addJs"><script>dgt/extensions/browser.js</script></action>
+            <action method="addJs"><script>prototype/window.js</script></action>
+
+            <action method="addJs"><script>dgt/widget/video.js</script></action>
+            <action method="addJs"><script>dgt/widget/widget.js</script></action>
+            <action method="addJs"><script>dgt/widget/frontend.js</script></action>
+        </reference>
+    </adminhtml_cms_block_edit>
+</layout>

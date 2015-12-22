@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <DGT_Newsletter>
+            <active>true</active>
+            <codePool>local</codePool>
+        </DGT_Newsletter>
+    </modules>
+</config>

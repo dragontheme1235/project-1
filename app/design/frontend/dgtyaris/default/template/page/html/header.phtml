@@ -1,0 +1,163 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php
+$theme = $this->helper('dgtyaris');
+$compareHeader = $theme->getCfg('header/compare');
+$layout = $theme->getCfg('header/layout');
+$stickyEnable = $theme->getCfg('header/sticky_enable');
+$topHeader = $theme->getCfg('header/top_header');
+$blockCart = $theme->getCfg('header/cart');
+$blockSearch = $theme->getCfg('header/search');
+$mobileCart = $theme->getCfg('header/hide_on_mobile');
+$toplink = $theme->getCfg('header/top_links');
+$logo = Mage::getStoreConfig('dgtyaris_design/header/logo_upload');
+$logo_retina = Mage::getStoreConfig('dgtyaris_design/header/logo_retina_upload');
+$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+$class = $mobileCart ? 'hidden-xs' : ''
+?>
+<header class="header-container">
+    <?php // Header ?>
+    <div class="header">
+        <?php // Header Top ?>
+        <?php if($topHeader) : ?>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="dgt-header-top-left col-md-5 col-sm-5">
+                        <div class="dgt-social pull-left">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+<!--                                <li><a href="#"><i class="fa fa-behance"></i></a></li>-->
+<!--                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
+<!--                                <li><a href="#"><i class="fa fa-flickr"></i></a></li>-->
+                            </ul>
+                        </div>
+                        <div class="dgt-line pull-left"></div>
+                        <div class="dgt-static-header pull-left"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('call_us_now')->toHtml(); ?></div>
+                    </div>
+                    <div class="dgt-header-top-center al-center col-sm-2 col-md-2">
+                        <p class="welcome-msg"><?php echo $this->getWelcome() ?> <?php echo $this->getAdditionalHtml() ?></p>
+                    </div>
+                    <div class="dgt-header-top-right col-md-5 col-sm-5">
+                        <div class="pull-right">
+                            <?php echo $this->getChildHtml('store_language') ?>
+                            <div class="dgt-line pull-left"></div>
+                            <?php echo $this->getChildHtml('currency') ?>
+                            <div class="dgt-line pull-left"></div>
+                            <div class="top-link dgt-hover pull-left">
+                                <?php if ($toplink): ?>
+                                    <?php echo $this->getChildHtml('topLinks') ?>
+                                <?php endif; ?>
+                            </div>
+                            <?php if($blockSearch) { ?>
+                                <div class="top-seach dgt-hover pull-left">
+                                    <span><i class="fa fa-search"></i></span>
+                                    <div class="quick-access">
+                                        <?php echo $this->getChildHtml('topSearch') ?>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+        <?php // Header Primary ?>
+        <div class="header-content" id="dgt-sticky-menu">
+            <div class="container">
+                <div class="header-inner row">
+                    <div class="dgt-header-logo col-sm-3 col-md-3">
+                        <div class="dgt-canvas-button visible-xs">
+                            <span><i class="fa fa-align-justify"></i></span>
+                        </div>
+                        <?php
+                        $logoStandard = $logoRetina = '';
+
+                        // logo standard
+                        if ($logo) {
+                            $logoStandard .= $mediaUrl . 'wysiwyg/dgtthemes/dgtyaris/logo/' . $logo;
+                        } else {
+                            $logoStandard .= $this->getSkinUrl('images/logo.png');
+                        }
+                        ?>
+                        <?php if ($this->getIsHomePage()): ?>
+                            <div class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a
+                                    href="<?php echo $this->getUrl('') ?>"
+                                    title="<?php echo $this->getLogoAlt() ?>">
+                                    <img class="img-responsive" src="<?php echo $logoStandard; ?>"
+                                         alt="<?php echo $this->getLogoAlt() ?>"/></a>
+                            </div>
+                        <?php else: ?>
+                            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"
+                               class="logo"><strong><?php echo $this->getLogoAlt() ?></strong>
+                                <img class="img-responsive" src="<?php echo $logoStandard; ?>"
+                                     alt="<?php echo $this->getLogoAlt() ?>"/>
+                            </a>
+                        <?php endif ?>
+                    </div>
+                    <?php // Main Menu ?>
+                    <div class="dgt-menu-wrapper col-sm-9 col-md-9">
+                        <div class="dgt-menu-inner pull-right">
+                            <?php echo $this->getChildHtml('topMenu') ?>
+                            <div class="dgt-getcart">
+                                <?php if($blockCart) { ?>
+                                    <div class="dgt-top-cart <?php echo $class; ?>">
+                                        <div class="dgt-maincart">
+                                            <?php echo $this->getChildHtml('ajaxcart'); ?>
+                                        </div>
+                                        <div id="ajax-status"></div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php if ($stickyEnable) { ?>
+        <script type="text/javascript">
+            $dgt(window).load(function () {
+                $dgt("#dgt-sticky-menu").sticky({
+                    topSpacing: 0
+                });
+                var $logoImg = $dgt('.dgt-wrapper .header .logo img');
+                if ($logoImg.css('min-height') == '1px') {
+                    $logoImg.attr('src', $logoImg.attr('src').replace('<?php echo $logo;?>', '<?php echo $logo_retina;?>'));
+                }
+            });
+        </script>
+    <?php } ?>
+</header>

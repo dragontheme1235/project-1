@@ -1,0 +1,30 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Filter
+ * @copyright   Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<?php $barColor = Mage::helper('dgtfilter')->getConfig('dgtfilter/general/bar_color') ?>
+<style type="text/css">
+    #nprogress .bar {
+        background: #<?php echo $barColor?>;
+    }
+    #nprogress .spinner-icon {
+        border-top-color: #<?php echo $barColor?>;
+        border-left-color: #<?php echo $barColor?>;
+    }
+    #nprogress .peg {
+        -webkit-box-shadow: 0 0 15px #<?php echo $barColor?>, 0 0 10px #<?php echo $barColor?>;
+        -moz-box-shadow: 0 0 15px #<?php echo $barColor?>, 0 0 10px #<?php echo $barColor?>;
+        -ms-box-shadow: 0 0 15px #<?php echo $barColor?>, 0 0 10px #<?php echo $barColor?>;
+        -o-box-shadow: 0 0 15px #<?php echo $barColor?>, 0 0 10px #<?php echo $barColor?>;
+        box-shadow: 0 0 15px #<?php echo $barColor?>, 0 0 10px #<?php echo $barColor?>;
+    }
+</style>
+<script type="text/javascript">
+    window.dgtFilter = new DGTFilter('dgtFilter', <?php echo Mage::helper('dgtfilter')->getConfig()?>);
+</script>

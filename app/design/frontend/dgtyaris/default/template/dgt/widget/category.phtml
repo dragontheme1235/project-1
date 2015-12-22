@@ -1,0 +1,36 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<?php
+/* @var $this DGT_Widget_Block_Widget */
+$categories = $this->getCategories();
+$id         = 'dgt-widget-'. rand(123456, 7891011);
+$scroll     = $this->getConfig('scroll');
+$title      = $this->getConfig('widget_title');
+?>
+<div class="<?php echo $this->getConfig('classes') ?> rit-widget-class"
+     id="<?php echo $id ?>"
+     data-animation="<?php echo $this->getConfig('animation'); ?>"
+     data-parallax="<?php echo $this->getConfig('parallax') ?>"
+     data-carousel="<?php echo $this->getConfig('carousel') ?>"
+     data-carouselConfig="null"
+     data-kenburns="<?php echo $this->getConfig('kenburns') ?>">
+    <?php if ($title): ?>
+        <h2><?php echo $title ?></h2>
+    <?php endif ?>
+    <div class="<?php echo $scroll==1 ? 'owl-carousel ' : '' ?>">
+        <?php foreach ($categories as $category): ?>
+            <div style="<?php if ($category['image']): ?>background-image: url(<?php echo $category['image'] ?>)<?php endif ?>">
+                <a href="<?php echo $category['url'] ?>"><span><?php echo $this->escapeHtml($category['label']) ?></span></a>
+                <span><?php echo $category['count'] ?>&nbsp;<?php echo $this->__('product(s)') ?></span>
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>

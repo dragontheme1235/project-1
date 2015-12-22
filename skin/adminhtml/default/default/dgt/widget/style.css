@@ -1,0 +1,103 @@
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * @copyright   Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+.layout-preview {
+       position: relative;
+       display: inline-block;
+       vertical-align: top;
+       border: 1px dashed #aaa;
+       padding: 5px 5px 0 5px;
+       background: #FFF;
+       width: 600px;
+}
+
+.layout-preview .flex-grid.hidden {
+       background: #ccc;
+       opacity: 0.4;
+}
+
+.layout-preview .flex-grid {
+       position: relative;
+       height: 70px;
+       display: inline-block;
+       margin-right: 0;
+       margin-bottom: 5px;
+       vertical-align: top;
+       cursor: move;
+       background: #60aebd;
+       text-align: center;
+}
+
+.layout-preview .flex-grid .flex-grid-number {
+       color: #fff;
+       display: block;
+       font-size: 25px;
+       font-weight: bold;
+       text-align: center;
+       text-decoration: none;
+       width: 100%;
+}
+
+.layout-preview .flex-grid .ui-resizable-e {
+       border-right: 5px solid #007389;
+       right: 0;
+}
+
+.layout-preview .flex-grid .flex-grid-name {
+       font-size: 15px;
+       color: #FFF;
+       overflow: hidden;
+       white-space: nowrap;
+       padding: 10px;
+       display: block;
+}
+
+span.flex-grid-result {
+       color: #000;
+       line-height: 50px;
+       text-align: center;
+       font-size: 30px;
+       font-weight: bold;
+}
+
+span.flex-grid-result span.ok {
+       background: url(../../images/ico_success.gif) no-repeat right center;
+       padding-right: 20px;
+       color: green;
+}
+
+span.flex-grid-hide {
+       background: url(../../images/btn_show-hide_icon_widget.gif) no-repeat center;
+       background-size: 100%;
+       bottom: 11px;
+       cursor: pointer;
+       display: block;
+       height: 20px;
+       left: 50%;
+       margin-left: 15px;
+       position: absolute;
+       width: 20px;
+}
+span.flex-grid-hide:before{
+       background: url(../../images/img-tooltip-widget.png) no-repeat center;
+       content: "";
+       height: 27px;
+       left: -52px;
+       position: absolute;
+       top: -16px;
+       width: 125px;
+       z-index: 99;
+       opacity: 0;
+       visibility: hidden;
+       transition: all 0.3s linear 0s;
+}
+span.flex-grid-hide:hover:before{
+       opacity: 1;
+       visibility: visible;
+       top: -26px;
+}

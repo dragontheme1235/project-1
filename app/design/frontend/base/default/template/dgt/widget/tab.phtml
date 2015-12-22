@@ -1,0 +1,64 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<?php
+/* @var $this DGT_Widget_Block_Widget */
+$id         = $this->getConfig('id');
+$title      = $this->getConfig('widget_title');
+$tabs       = $this->getTabs();
+$template   = 'dgt/widget/collection.phtml';
+$t          = microtime();
+?>
+<div class="<?php echo $this->getConfig('classes') ?> rit-widget-class"
+    id="<?php echo $id ?>"
+    data-animation="<?php echo $this->getConfig('animation'); ?>"
+    data-collectionUrl="<?php echo $this->getUrl('dgtwidget/collection/get') ?>"
+    data-collectionCallback="true"
+    data-spinnerClass="spinner"
+    data-spinnerImg="<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>"
+    data-parallax="<?php echo $this->getConfig('parallax') ?>"
+    data-carousel="<?php echo $this->getConfig('carousel') ?>"
+    data-carouselConfig="null"
+    data-countdown="<?php echo $this->getConfig('countdown') ?>"
+    data-countdownConfig="null"
+    data-kenburns="<?php echo $this->getConfig('kenburns') ?>">
+    <?php if ($title): ?>
+        <h2><?php echo $title ?></h2>
+    <?php endif ?>
+    <ul class="widget-tabs nav nav-tabs">
+        <?php foreach ($tabs as $index => $tab): ?>
+            <li class="<?php echo $index==0 ? 'active' : '' ?>">
+                <a href="#<?php echo $id . '-' . $tab['id'] ?>"
+                    data-value="<?php echo $tab['value'] ?>"
+                    data-type="<?php echo $tab['type'] ?>"
+                    data-limit="<?php echo $this->getLimit() ?>"
+                    data-column="<?php echo $this->getConfig('column') ?>"
+                    data-row="<?php echo $this->getConfig('row') ?>"
+                    data-cid="<?php echo $this->getData('category_ids') ?>"
+                    data-template="<?php echo $template ?>"
+                    data-carousel="<?php echo $this->getConfig('scroll') ?>">
+                    <?php echo $tab['label'] ?>
+                </a>
+            </li>
+        <?php endforeach ?>
+    </ul>
+    <div class="widget-tab-content tab-content">
+        <?php foreach ($tabs as $index => $tab): ?>
+            <div id="<?php echo $id . '-' . $tab['id'] ?>" class="tab-pane<?php echo $index==0 ? ' active' : '' ?>">
+                <?php if ($index > 0): ?>
+                    </div>
+                    <?php continue ?>
+                <?php endif ?>
+                <?php echo $this->renderCollection($tab['type'], $tab['value'], $template) ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>
+<?php //Mage::log(microtime() - $t) ?>

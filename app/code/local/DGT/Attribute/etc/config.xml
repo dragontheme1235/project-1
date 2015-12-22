@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category    DGT
+* @package     DGT_Attribute
+* Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+* @license     GNU General Public License version 2 or later
+* @author      dragontheme.com
+* @email       support@dragontheme.com
+*/
+-->
+<config>
+    <modules>
+        <DGT_Attribute>
+            <version>1.0</version>
+        </DGT_Attribute>
+    </modules>
+
+    <global>
+        <helpers>
+            <dgtattribute>
+                <class>DGT_Attribute_Helper</class>
+            </dgtattribute>
+        </helpers>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_attribute_edit_tab_options>DGT_Attribute_Block_Adminhtml_Catalog_Product_Attribute_Edit_Tab_Options</catalog_product_attribute_edit_tab_options>
+                </rewrite>
+            </adminhtml>
+            <catalog>
+                <rewrite>
+                    <product_view_type_configurable>DGT_Attribute_Block_Catalog_Product_View_Type_Configurable</product_view_type_configurable>
+                </rewrite>
+            </catalog>
+        </blocks>
+        <resources>
+            <dgtattribute_setup>
+                <setup>
+                    <module>DGT_Attribute</module>
+                </setup>
+            </dgtattribute_setup>
+        </resources>
+        <models>
+            <dgtattribute>
+                <class>DGT_Attribute_Model</class>
+            </dgtattribute>
+            <catalog_resource>
+                <rewrite>
+                    <attribute>DGT_Attribute_Model_Resource_Attribute</attribute>
+                </rewrite>
+            </catalog_resource>
+            <!--catalog>
+                <rewrite>
+                    <layer_filter_attribute>DGT_Attribute_Model_Catalog_Layer_Filter_Attribute</layer_filter_attribute>
+                </rewrite>
+            </catalog-->
+        </models>
+    </global>
+
+    <adminhtml>
+        <events>
+            <controller_action_layout_render_before_adminhtml_catalog_product_attribute_edit>
+                <observers>
+                    <dgtattribute>
+                        <class>DGT_Attribute_Model_Observer</class>
+                        <method>updateLayout</method>
+                    </dgtattribute>
+                </observers>
+            </controller_action_layout_render_before_adminhtml_catalog_product_attribute_edit>
+        </events>
+    </adminhtml>
+
+    <frontend>
+        <layout>
+            <updates>
+                <dgtattribute>
+                    <file>dgt_attribute.xml</file>
+                </dgtattribute>
+            </updates>
+        </layout>
+    </frontend>
+
+    <default>
+        <dgtattribute>
+            <general>
+                <show>0</show>
+            </general>
+        </dgtattribute>
+    </default>
+</config>

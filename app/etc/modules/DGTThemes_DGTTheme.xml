@@ -1,0 +1,9 @@
+<?xml version="1.0"?> 
+<config>
+    <modules>
+        <DGTThemes_DGTTheme>
+            <active>true</active>
+            <codePool>local</codePool>
+        </DGTThemes_DGTTheme>
+    </modules>
+</config> 

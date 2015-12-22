@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!--
+@category    DGT
+@package     DGT_Filter
+@copyright   Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+@license     GNU General Public License version 2 or later
+@author      dragontheme.com
+@email       support@dragontheme.com
+-->
+<config>
+    <modules>
+        <DGT_Filter>
+            <version>1.1.0</version>
+        </DGT_Filter>
+    </modules>
+
+    <frontend>
+        <routers>
+            <catalog>
+                <args>
+                    <modules>
+                        <DGT_Filter before="Mage_Catalog">DGT_Filter_Catalog</DGT_Filter>
+                    </modules>
+                </args>
+            </catalog>
+            <catalogsearch>
+                <args>
+                    <modules>
+                        <DGT_Filter before="Mage_CatalogSearch">DGT_Filter_CatalogSearch</DGT_Filter>
+                    </modules>
+                </args>
+            </catalogsearch>
+        </routers>
+        <layout>
+            <updates>
+                <dgtfilter>
+                    <file>dgt_filter.xml</file>
+                </dgtfilter>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <blocks>
+            <dgtfilter>
+                <class>DGT_Filter_Block</class>
+            </dgtfilter>
+            <catalog>
+                <rewrite>
+                    <layer_filter_price>DGT_Filter_Block_Catalog_Layer_Filter_Price</layer_filter_price>
+                </rewrite>
+            </catalog>
+        </blocks>
+        <helpers>
+            <dgtfilter>
+                <class>DGT_Filter_Helper</class>
+            </dgtfilter>
+        </helpers>
+        <models>
+            <dgtfilter>
+                <class>DGT_Filter_Model</class>
+                <resourceModel>dgtfilter_resource</resourceModel>
+            </dgtfilter>
+            <dgtfilter_resource>
+                <class>DGT_Filter_Model_Resource</class>
+            </dgtfilter_resource>
+            <catalog_resource>
+                <rewrite>
+                    <product_collection>DGT_Filter_Model_Resource_Product_Collection</product_collection>
+                </rewrite>
+            </catalog_resource>
+            <catalogsearch_resource>
+                <rewrite>
+                    <fulltext_collection>DGT_Filter_Model_Resource_Fulltext_Collection</fulltext_collection>
+                </rewrite>
+            </catalogsearch_resource>
+        </models>
+        <events>
+            <core_block_abstract_prepare_layout_after>
+                <observers>
+                    <dgtfilter>
+                        <type>singleton</type>
+                        <class>dgtfilter/observer</class>
+                        <method>coreBlockAbstractPrepareLayoutAfter</method>
+                    </dgtfilter>
+                </observers>
+            </core_block_abstract_prepare_layout_after>
+        </events>
+    </global>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <dgtfilter>
+                    <file>dgt_filter.xml</file>
+                </dgtfilter>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <default>
+		<dgtfilter>
+            <general>
+                <bar>1</bar>
+                <bar_color>CC181E</bar_color>
+            </general>
+		    <catalog>
+		    	<price>1</price>
+                <enable>1</enable>
+                <main_selector>.col-main</main_selector>
+                <layer_selector>.block-layered-nav</layer_selector>
+		    </catalog>
+            <catalogsearch>
+                <price>1</price>
+                <enable>1</enable>
+                <main_selector>.col-main</main_selector>
+                <layer_selector>.block-layered-nav</layer_selector>
+            </catalogsearch>
+		</dgtfilter>
+    </default>
+</config>

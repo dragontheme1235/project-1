@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category     Mono
+ * @package      DGT_Newsletter
+ *
+ * @copyright    Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license      GNU General Public License version 2 or later;
+ * @author       dragontheme.com
+ * @email        support@dragontheme.com
+ **
+ */
+ -->
+<config>
+    <modules>
+        <DGT_Newsletter>
+            <version>2.0.0</version>
+        </DGT_Newsletter>
+    </modules>
+    <global>
+        <models> 
+            <dgtnewsletter>
+                <class>DGT_Newsletter_Model</class>
+            </dgtnewsletter>
+        </models>
+        <resources>
+            <dgtnewsletter_setup>
+                <setup>
+                    <module>DGT_Newsletter</module>
+                </setup>
+            </dgtnewsletter_setup>
+        </resources>
+        <blocks>
+            <dgtnewsletter>
+                <class>DGT_Newsletter_Block</class>
+            </dgtnewsletter>
+        </blocks>
+        <helpers>
+            <dgtnewsletter>
+                <class>DGT_Newsletter_Helper</class>
+            </dgtnewsletter>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <dgtnewsletter>
+                <use>standard</use>
+                <args>
+                    <module>DGT_Newsletter</module>
+                    <frontName>dgtnewsletter</frontName>
+                </args>
+            </dgtnewsletter>
+        </routers>
+        <layout>
+            <updates>
+                <dgtnewsletter>
+                    <file>dgt_newsletter.xml</file>
+                </dgtnewsletter>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <dgtnewsletter>
+                    <files>
+                        <default>DGT_Newsletter.csv</default>
+                    </files>
+                </dgtnewsletter>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+        <routers>
+            <dgtnewsletter>
+                <use>admin</use>
+                <args>
+                    <module>DGT_Newsletter</module>
+                    <frontName>dgtnewsletter</frontName>
+                </args>
+            </dgtnewsletter>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <dgtnewsletter>
+                    <file>dgt_newsletter.xml</file>
+                </dgtnewsletter>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <dgtnewsletter>
+                    <files>
+                        <default>DGT_Newsletter.csv</default>
+                    </files>
+                </dgtnewsletter>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <dgtnewsletter>
+            <display_options>
+                <enable>1</enable>
+                <title>Save up to 40% ON LAPTOP PURCHASE</title>
+                <text_color>#FFFFFF</text_color>
+                <background_color>#FFFFFF</background_color>
+                <background_image></background_image>
+                <thumnail_image></thumnail_image>
+                <intro></intro>
+                <width>700</width>
+                <height>300</height>
+            </display_options>
+        </dgtnewsletter>
+    </default>
+</config>

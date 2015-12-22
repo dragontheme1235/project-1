@@ -1,0 +1,414 @@
+/* ================= Include Global ================ */
+@import "variables";
+@import "mixins";
+
+.rtl{
+  text-align: right;
+  /* ==================== General =================== */
+  .pull-left{ float: right !important; }
+  .pull-right{ float: left !important; }
+  .error-msg, .success-msg, .note-msg, .notice-msg {
+    background-position: 100% 50%;
+    padding: 10px 32px 8px 8px;
+  }
+  ul.links li, ul.links li a .fa, .dgt-footer-partner ul li{
+    float: right;
+  }
+  ul.links li{
+    a{
+      .fa{
+        padding: 0 0 0 5px;
+      }
+    }
+  }
+  .title-toggle{
+    margin-right: 0;
+    margin-left: 12px;
+  }
+  .sbHolder{
+    padding: 5px 9px 5px 25px;
+  }
+  .sbToggle{
+    right: inherit;
+    left: 3px;
+  }
+  .form-language {
+    .sbHolder {
+      .sbSelector{
+        padding: 0 23px 0 0;
+        background-position: right center !important;
+      }
+      .sbOptions li a{
+        padding: 5px 27px 5px 5px;
+        background-position: right center !important;
+      }
+    }
+  }
+  .sbOptions{
+    right: 0;
+    left: inherit;
+  }
+  .sbHolder .sbOptions li a, .main, .footer-container .footer h3{
+    text-align: right;
+  }
+  .dgt-icon {
+    [class*="fa-"]{
+      float: right;
+    }
+    span{
+      padding-left: inherit;
+      padding-right: 60px;
+      span{
+        padding: 0;
+      }
+    }
+  }
+  /* ================= Top Search ================= */
+  .top-seach {
+    input#search{
+      float: right;
+    }
+    button.button{
+      border-radius: 3px 0 0 3px;
+    }
+  }
+  /* ================= Top Get Cart ================= */
+  .dgt-getcart{
+    .dgt-top-compare, .dgt-top-cart{
+      float: right;
+    }
+    .dgt-top-cart{
+      padding-left: 80px;
+      padding-right: inherit;
+    }
+    .dgt-ajax-container{
+      left: inherit;
+      right: 0;
+      li.item, .product-image{
+        float: right;
+      }
+      .product-details{
+        text-align: right;
+        padding: 0 15px 0 0;
+        text-align: right;
+        .btn-edit, .btn-remove{
+          float: right;
+        }
+        .btn-edit{
+          padding: 0 0 0 20px;
+        }
+      }
+    }
+    .dgt-ajax-checkout{
+      .view-compare{
+        > button, .clearall{
+          float: right;
+        }
+      }
+    }
+  }
+  /* ================= Main Menu ================== */
+  #dgt-navigation{
+    li{
+      float: right;
+    }
+  }
+  /* ================= Vertical Menu ============== */
+  .dgt-menu-vertical-wrap {
+    .block-title {
+      strong {
+        span.fa{
+          float: right;
+          padding: 0 20px 0 11px;
+        }
+      }
+    }
+    li{
+      &.level0 {
+        > a{
+          padding: 0 69px 0 10px;
+          small{
+            left: inherit;
+            right: 25px;
+          }
+        }
+      }
+    }
+    .dgt-menu-vertical{
+      ul li.level0 > .shown-sub{
+        &:before{
+          left: inherit;
+          right: -16px;
+          border-color: transparent transparent transparent #fff;
+        }
+        &:after{
+          left: inherit;
+          right: -9px;
+        }
+      }
+    }
+    &.effect-show{
+      .dgt-menu-vertical {
+        div.shown-sub{
+          left: inherit;
+          right: 300px;
+        }
+        li.level0:hover div.shown-sub{
+          left: inherit;
+          right: 270px;
+        }
+      }
+    }
+  }
+  /* ================= Category Product ============= */
+  .category-products {
+    #products-list {
+      .product-name{
+        text-align: right;
+      }
+      .price-box{
+        float: right;
+        padding-right: 0;
+      }
+      .std{
+        text-align: right;
+      }
+    }
+  }
+  /* ================= Tool Bar Category ============ */
+  .toolbar {
+    .sbHolder{
+      text-align: right;
+      line-height: @baseLineHeight - 3px;
+    }
+    .toolbar-top {
+      a.sbToggle{
+        top: 4px;
+      }
+    }
+  }
+  /* ================= Product Details ============== */
+  .product-view {
+    .product-shop{
+      text-align: right;
+      .price-box{
+        margin: 0;
+        .regular-price{
+          float: right;
+        }
+      }
+      .add-to-cart{
+        float: right;
+        label{
+          float: right;
+          padding: 0 0 0 10px;
+        }
+      }
+      .add-to-cart .qty{
+        margin: 0;
+      }
+      ul.add-to-links {
+        float: right;
+        li{
+          margin-right: 10px;
+          margin-left: inherit;
+        }
+      }
+      .product-item{
+        .button.btn-cart{
+          margin-right: 10px;
+          margin-left: 0;
+        }
+        .add-to-links li{
+          margin-left: inherit;
+        }
+      }
+    }
+    .owl-carousel .owl-item{
+      float: right;
+    }
+  }
+  /* =================== Product Tabs =============== */
+  .product-tabs, .product-tabs li{
+    float: right;
+  }
+  /* ================= Block Related ================ */
+  .block.block-related {
+    .main-heading {
+      h3{
+        float: right;
+        padding-left: 30px;
+        padding-right: 0;
+      }
+    }
+    .product-item {
+      .price-box{
+        float: right;
+        margin-left: 20px;
+        margin-right: inherit;
+      }
+    }
+  }
+  /* ================= Accordion ==================== */
+  ul.nav-accordion{
+    li {
+      a{
+        text-align: right;
+      }
+      span{
+        &.expand, &.collapse{
+          left: 0;
+          right: inherit;
+        }
+      }
+    }
+    ul {
+      li a{
+        padding-right: 15px;
+        padding-left: inherit;
+      }
+      ul li a{
+        margin-left: inherit;
+        margin-right: 10px;
+      }
+    }
+  }
+  /* ================= Title Page =================== */
+  .title-buttons {
+    h1{
+      float: right;
+    }
+  }
+  /* ================= Contact Page ================= */
+  .form-list {
+    label{
+      float: right;
+      &.required em{
+        left: -8px;
+        right: inherit;
+      }
+    }
+  }
+  .fieldset {
+    .legend{
+      float: right;
+    }
+  }
+  /* ================= Check Out Page =============== */
+  .opc-wrapper-opc {
+    .opc-col-center, .opc-col-left{
+      margin-right: 0;
+    }
+  }
+  /* ================= Block Menu =================== */
+  .dgtmenu-block-top ul li{
+    float: right;
+  }
+  /* ================= Main Heading ================= */
+  .main-heading {
+    .heading-wrapper-title{
+    }
+  }
+  .owl-theme .owl-controls .owl-buttons{
+    right: inherit;
+    left: -15px;
+  }
+  /* ================= Product Item ================= */
+  .product-item{
+    text-align: right;
+    .button.btn-cart, .add-to-links li{
+      margin-right: inherit;
+      margin-left: 5px;
+    }
+  }
+  /* ================= Newletter ==================== */
+  .dgt-newletter {
+    .subscribe {
+      h3{
+        padding: 0 20px 0 0;
+      }
+      .input-box input{
+        float: right;
+      }
+    }
+  }
+  /* ================= Footer ======================= */
+  .dgt-footer-partner ul li{
+    margin: 4px 0 20px 20px;
+  }
+  .dgt-social ul li a{
+    margin-right: inherit;
+    margin-left: 10px;
+  }
+  /* ================ Page About ==================== */
+  .page-title-border{
+    h1, h2, h3{
+      padding-right: inherit;
+      padding-left: 20px;
+    }
+  }
+}
+
+/* ================== Style Responsive RTL ====================== */
+
+@media (min-width: 1200px){
+  .rtl{
+    .dgt-top-preface{
+      .col-md-offset-3{
+        margin-right: calc(~"25% - 15px");
+      }
+    }
+  }
+}
+
+/* ================== Style for screen max width 1200px ========= */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .rtl{
+    .dgt-getcart .dgt-top-cart{
+      padding-left: 20px;
+    }
+    .dgt-menu-vertical-wrap.effect-show .dgt-menu-vertical li.level0:hover div.shown-sub{
+      right: 219px;
+    }
+    .dgt-icon span{
+      padding-left: 0;
+    }
+    .dgt-top-preface{
+      .col-md-offset-3{
+        margin-right: calc(~"25% - 15px");
+      }
+    }
+  }
+}
+/* ================== Style for screen max width 992px ========= */
+@media (min-width: 768px) and (max-width: 991px) {
+  .rtl {
+    .dgt-getcart .dgt-top-cart{
+      padding-left: 40px;
+    }
+    .dgt-icon span{
+      padding-right: 0;
+    }
+  }
+}
+@media screen and (max-width: 991px){
+  .close-canvas{
+    float: left;
+  }
+  .dgt-menu ul.nav-accordion li a{
+    padding-left: inherit;
+    padding-right: 15px;
+  }
+}
+/* ================== Style for screen max width 767px ========= */
+@media (max-width: 767px) {
+  .rtl {
+    .dgt-getcart .dgt-maincompare .dgt-ajax-container{
+      left: 0;
+      right: inherit;
+    }
+    .dgt-icon span{
+      padding-right: 0;
+    }
+  }
+}

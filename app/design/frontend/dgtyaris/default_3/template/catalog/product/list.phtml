@@ -1,0 +1,286 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+$_productCollection=$this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+$theme = $this->helper('dgtyaris');
+$equalHeight = $theme->getCfg('category/equal_height');
+$helpImg = $this->helper('dgtyaris/image');
+$imgWidth = $theme->getCfg('category/image_width') ? $theme->getCfg('category/image_width') : 295;
+$imgHeight = $theme->getCfg('category/image_height') ? $theme->getCfg('category/image_height') : 295;
+if($theme->getCfg('category/aspect_ratio')){
+    $imgHeight = 0;
+}
+$cfdphover = $theme->getCfg('category/hover_effect');
+$cfdlistphover = $theme->getCfg('category/hover_effect_list');
+$hoverClass = ($cfdphover == 1) ? 'has-shadow' : '';
+$hoverlistClass = ($cfdlistphover == 1) ? 'has-shadow' : '';
+$cfaltimage = $theme->getCfg('category/alt_image');
+$hoveraltClass = ($cfaltimage == 1) ? 'front-img' : '';
+?>
+<?php if(!$_productCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+<div class="category-products clearfix">
+    <?php echo $this->getToolbarHtml() ?>
+    <?php // List mode ?>
+    <?php if($this->getMode()!='grid'): ?>
+    <?php $_iterator = 0; ?>
+    <div class="products-list show-grid" id="products-list">
+    <?php foreach ($_productCollection as $_product): ?>
+	    <?php
+             $oType = $this->helper('dgtyaris')->getType($_product);
+		?>
+        <div class="col-sm-12 col-md-12 product-item item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?> <?php echo $hoverlistClass;?>">
+            <div class="row">
+            <?php // Product Image ?>
+			<div class="col-sm-3 col-md-3">
+			   <div class="product-hover">
+					<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                        <?php echo $this->helper('dgtyaris')->getLabel($_product);  ?>
+						<span class="front margin-image <?php echo $althoverClass;?>">
+							 <img data-src="<?php echo $helpImg->getImg($_product, $imgWidth, $imgHeight, 'small_image'); ?>" src="<?php echo $this->getSkinUrl('images/loader.gif') ?>" class="img-responsive lazy" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+						</span>
+                        <?php if ($theme->getCfg('category/alt_image')): ?>
+                            <span class="product-img-additional back margin-image">
+                                    <?php echo $theme->getAltImgHtml($_product, $imgWidth, $imgHeight); ?>
+                            </span>
+                        <?php endif; ?>
+					</a>
+               </div>
+			</div>
+			<?php // Product description ?>
+            <div class="product-shop col-sm-9 col-md-9">
+                <div class="f-fix">
+                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>
+                    <div class="dgt-product-info">
+						<?php echo $this->getPriceHtml($_product, true) ?>
+						<?php if($_product->getRatingSummary()): ?>
+							 <?php echo $this->getReviewsSummaryHtml($_product) ?>
+						<?php endif; ?>
+					</div>
+					<div class="desc std">
+                        <?php
+
+                        $shortDes = $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description');
+                        echo (strlen($shortDes) > 170) ? substr($shortDes, 0, 171) . '.....' : $shortDes;
+                        ?>
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?>&nbsp;&#8594;</a>
+                    </div>
+                    <div class="dgt-actions clearfix">
+                        <div class="addtocart pull-left">
+                        <?php if($_product->isSaleable()): ?>
+                             <p class="dgt-button-cart">
+                                 <?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) || $oType == true ) { ?>
+                                <a class="options-cart" href="<?php echo $this->getUrl('ajaxcart/index/options/product_id/' . $_product->getId()); ?>" data-id='options-cart-<?php echo $_product->getId()?>' style='display:none'><?php //echo $this->__('Quickview') ?></a>
+                                      <button type="button" title="<?php echo $this->__('Add To Cart') ?>" class="button btn-cart dgt-tooltip <?php if($oType == true) echo 'option-file';?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><i class="fa fa-shopping-cart"></i><?php echo $this->__('Add To Cart') ?></span></span></button>
+                                 <?php } else { ?>
+                             </p>
+                            <?php if (Mage::getStoreConfig('ajaxcart/ajaxcart_config/enable_ajaxcart')) : ?>
+                                <a style="display: none;" href='<?php echo $this->getUrl('ajaxcart/index/options',array('product_id'=>$_product->getId()));?>' class='options-cart' data-id='options-cart-<?php echo $_product->getId()?>'><i class="fa fa-shopping-cart"></i><?php echo $this->__('Option cart')?></a>
+                            <?php endif; ?>
+                            <p class="dgt-button-cart">
+                                <button type="button" title="<?php echo $this->__('Add To Cart') ?>" class="button btn-cart show-options dgt-tooltip" data-id="<?php echo $_product->getId(); ?>"
+                                    <?php if (!Mage::getStoreConfig('ajaxcart/ajaxcart_config/enable_ajaxcart')) { ?>
+                                        onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"
+                                    <?php }?> data-submit='<?php echo $this->getAddToCartUrl($_product) ?>'><span><span><i class="fa fa-shopping-cart"></i><?php echo $this->__('Add To Cart') ?></span></span>
+                                </button>
+                            </p>
+                           <?php }  ?>
+
+                        <?php else: ?>
+                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                        <?php endif; ?>
+                        </div>
+                        <ul class="add-to-links pull-left <?php echo $btnClassLink;?>">
+                            <?php
+                            $cfdplink_simple_grid = $theme->getCfg('category/addtolinks_simple');
+                            $classSimple = ($cfdplink_simple_grid ==1)? '' : 'text-link';
+                            $classSimplecompare = ($cfdplink_simple_grid ==1)? '' : 'text-link-compare';
+                            ?>
+                            <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                <li class="wishlist"><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" title="<?php echo $this->__('Wishlist') ?>" class="link-wishlist dgt-tooltip <?php echo $classSimple;?>"><i class="fa fa fa-heart-o-o"></i><span><?php //echo $this->__('Wishlist') ?></span></a></li>
+                            <?php endif; ?>
+                            <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                <li class="compare"><a href="<?php echo $_compareUrl ?>" title="<?php echo $this->__('Compare') ?>" class="link-compare dgt-tooltip <?php echo $classSimplecompare;?>"><i class="fa fa-compress"></i><span><?php //echo $this->__('Compare') ?></span></a></li>
+                            <?php endif; ?>
+                        </ul>
+                        <div class="main-quickview pull-left hidden-xs">
+                            <button type="button" title="<?php echo $this->__('Quickview') ?>" rel="tooltip" class="button btn-quickview dgt-tooltip show-quickview" data-id="<?php echo $_product->getId(); ?>"><span><span><i class="fa fa-search"></i><?php //echo $this->__('Quick view') ?></span></span></button>
+                        </div>
+                        <a class="product-quickview" href="<?php echo $this->getUrl('ajaxcart/index/options/product_id/' . $_product->getId()); ?>" data-id='quickview-<?php echo $_product->getId()?>' style='display:none'><?php echo $this->__('Quick view') ?></a>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    </div>
+    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+    <?php else: ?>
+
+    <?php // Grid Mode ?>
+
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = Mage::helper('dgtyaris')->getCfg('category/column_count'); ?>
+    <?php $_btColumn = 12/$_columnCount;?>
+	   <?php
+        $cfdpcart_grid = $theme->getCfg('category/display_addtocart');
+        $cfdplink_grid = $theme->getCfg('category/display_addtolinks');
+        $btnClassCart = ($cfdpcart_grid == 1) ? 'display-onhover' : '';
+        $btnClassLink = ($cfdplink_grid == 1) ? 'display-onhover' : '';
+    ?>
+    <ul class="products-grid gridmode gridmode-count products-grid-<?php echo $_columnCount;?>-col show-grid">
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+	    <?php
+            $i++;
+            $oType = $this->helper('dgtyaris')->getType($_product);
+		?>
+        <li class="item  product-item <?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?> ">
+
+        <div class="item-inner <?php echo $hoverClass;?>">
+            <div class="product-content products-list">
+                <div class="product-hover">
+                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                        <?php echo $this->helper('dgtyaris')->getLabel($_product);  ?>
+                        <span class="front margin-image">
+                             <img data-src="<?php echo $helpImg->getImg($_product, $imgWidth, $imgHeight, 'small_image'); ?>" src="<?php echo $this->getSkinUrl('images/loader.gif') ?>" class="img-responsive lazy" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                        </span>
+                        <?php if ($theme->getCfg('category/alt_image')): ?>
+                            <span class="product-img-additional back margin-image">
+                                 <?php echo $theme->getAltImgHtml($_product, $imgWidth, $imgHeight); ?>
+                            </span>
+                        <?php endif; ?>
+                    </a>
+                </div>
+            </div>
+            <div class="top-actions-inner">
+                <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h3>
+                    <?php echo $this->getPriceHtml($_product, true) ?>
+                    <?php if($_product->getRatingSummary()): ?>
+                        <?php $cfdpratting_grid = $theme->getCfg('category/display_rating');?>
+                        <?php if ($cfdpratting_grid == 1): ?>
+                            <div class="display-onhover"><?php echo $this->getReviewsSummaryHtml($_product, 'short') ?></div>
+                        <?php elseif ($cfdpratting_grid == 2): ?>
+                            <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                        <?php endif; ?>
+                    <?php endif; ?>
+            </div>
+            <div class="actions dgt-actions clearfix">
+                <div class="addtocart pull-left">
+                    <?php if($cfdpcart_grid != 0):?>
+                        <?php if($_product->isSaleable()): ?>
+                            <?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) || $oType == true ) { ?>
+                                <button type="button" title="<?php echo $this->__('Add To Cart') ?>" data-placement="top" class="button btn-cart dgt-tooltip <?php if($oType == true) echo 'option-file';?> <?php echo $btnClassCart;?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+                                     <span>
+                                         <span><i class="fa fa-shopping-cart"></i><?php echo $this->__('Add To Cart') ?></span>
+                                     </span>
+                                </button>
+                            <?php } else { ?>
+                                <?php if (Mage::getStoreConfig('ajaxcart/ajaxcart_config/enable_ajaxcart')) : ?>
+                                    <a style="display: none;" href='<?php echo $this->getUrl('ajaxcart/index/options',array('product_id'=>$_product->getId()));?>' class='options-cart' data-id='options-cart-<?php echo $_product->getId()?>'><?php echo $this->__('Option cart')?></a>
+                                <?php endif; ?>
+
+                                <button type="button" title="<?php echo $this->__('Add To Cart') ?>" data-placement="top" class="button btn-cart show-options dgt-tooltip <?php echo $btnClassCart;?>" data-id="<?php echo $_product->getId(); ?>"
+                                    <?php if (!Mage::getStoreConfig('ajaxcart/ajaxcart_config/enable_ajaxcart')) { ?>
+                                        onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"
+                                    <?php }?> data-submit='<?php echo $this->getAddToCartUrl($_product) ?>'>
+                                        <span>
+                                           <span><i class="fa fa-shopping-cart"></i><?php echo $this->__('Add To Cart') ?></span>
+                                        </span>
+                                </button>
+
+                            <?php }  ?>
+                        <?php else: ?>
+                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </div>
+                <?php if($cfdplink_grid != 0){?>
+                <ul class="add-to-links pull-left <?php echo $btnClassLink;?>">
+                    <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                        <li class="wishlist pull-left">
+                            <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" title="<?php echo $this->__('Wishlist') ?>" data-placement="top" class="link-wishlist dgt-tooltip">
+                                <i class="fa fa fa-heart-o-o"></i><span><?php //echo $this->__('Wishlist') ?></span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                        <li class="compare pull-left">
+                            <a href="<?php echo $_compareUrl ?>" title="<?php echo $this->__('Compare') ?>" data-placement="top" class="link-compare dgt-tooltip">
+                                <i class="fa fa-compress"></i><span><?php //echo $this->__('Compare') ?> </span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+                <?php }?>
+                <div class="main-quickview hidden-xs pull-left">
+                    <button type="button" rel="tooltip"  data-placement="top" title="<?php echo $this->__('Quick view') ?>" class="button btn-quickview dgt-tooltip show-quickview" data-id="<?php echo $_product->getId(); ?>"><span><span><i class="fa fa-search"></i><?php //echo $this->__('Quick view') ?></span></span></button>
+                    <a class="product-quickview" href="<?php echo $this->getUrl('ajaxcart/index/options/product_id/' . $_product->getId()); ?>" data-id='quickview-<?php echo $_product->getId()?>' style='display:none'><?php echo $this->__('Quick view') ?></a>
+                </div>
+            </div>
+        </div>
+        </li>
+	<?php endforeach ?>
+
+	</ul>
+        <div class="toolbar-bottom" style="clear:both;">
+            <?php echo $this->getToolbarHtml() ?>
+        </div>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+    <?php endif; ?>
+
+
+</div>
+<script>
+// JavaScript Document
+    $dgt(document).ready(function(){
+        $dgt("[rel=tooltip]").tooltip();
+    });
+$dgt("img.lazy").lazy({
+        bind: 'event',
+        effect : "fadeIn",
+        effectTime: 800,
+        threshold: 50,
+        afterLoad: function(element) {
+            <?php if ($equalHeight): ?>
+            setGridItemsEqualHeight($dgt);
+            <?php endif; ?>
+        }
+    });
+</script>
+<?php endif; ?>

@@ -1,0 +1,84 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<?php
+/* @var $this DGT_Widget_Block_Widget */
+$blogModel = new AW_Blog_Block_Blog();
+$posts = $blogModel->getPosts();
+
+$_id = 'dgt-widget-' . rand(123456, 7891011);
+$scroll = $this->getConfig('scroll');
+$_title = $this->getConfig('widget_title');
+$_carousel = $this->getConfig('carousel');
+$_limit = 10;
+$_class = ($_carousel) ? 'has-carousel' : 'no-carousel';
+?>
+
+<div class="dgt-widget <?php echo $_class . ' ' . $this->getConfig('classes'); ?> rit-widget-class"
+     id="<?php echo $id ?>"
+     data-animation="<?php echo $this->getConfig('animation'); ?>"
+     data-parallax="<?php echo $this->getConfig('parallax') ?>"
+     data-carousel="<?php echo $this->getConfig('carousel') ?>"
+     data-carouselConfig="null"
+     data-countdown="<?php echo $this->getConfig('countdown') ?>"
+     data-countdownConfig="null"
+     data-countdownTemplate="true"
+     data-kenburns="<?php echo $this->getConfig('kenburns') ?>">
+    <div class="main-heading">
+        <div class="heading-wrapper-title">
+            <?php if ($_title): ?>
+                <h3><span><?php echo $_title ?></span></h3>
+            <?php endif ?>
+        </div>
+    </div>
+    <div class="blog-wrap sidebar-wrap clearfix">
+        <?php if ($scroll == 1) : ?>
+        <div class="owl-carousel">
+            <?php endif;
+            if (count($posts)): $i = 1; ?>
+                <?php foreach ($posts as $post): ?>
+                    <div class="blog-item row">
+                        <div class="blog-item-inner">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="blog-image dgt-img-hover">
+                                    <a href="<?php echo $post->getAddress(); ?>">
+                                    <img
+                                        src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $post->getFeaturedImage() ?>"
+                                        alt="featuredImage"/>
+                                        <span class="img-hover">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="blog-title col-sm-6 col-md-6">
+                                <span class="blog-date">
+                                    <?php $_ct= new Zend_Date($post->getCreatedTime());
+                                        $date = date_create($_ct->toString('yyyy-MM-dd'));
+                                        echo '<span class="blog-date-d">'. date_format($date,"d") .'</span>';
+                                        echo ' / <span class="blog-date-m">'. date_format($date,"F") .'</span>';
+                                    ?>
+                                </span>
+                                <h3><a href="<?php echo $post->getAddress(); ?>"><?php echo $post->getTitle(); ?></a></h3>
+                                <div class="blog-excerpt"><?php echo $post->getPostContent(); ?></div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    if (++$i > $_limit) break;
+                endforeach;
+                ?>
+            <?php endif; ?>
+            <?php if ($scroll == 1) : ?>
+        </div>
+    <?php endif; ?>
+    </div>
+</div>
+<?php //Mage::log(microtime() - $t) ?>

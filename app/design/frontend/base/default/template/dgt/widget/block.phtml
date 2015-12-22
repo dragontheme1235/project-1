@@ -1,0 +1,34 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<?php
+$blocks     = $this->getBlocks();
+$id         = $this->getConfig('id');
+$scroll     = $this->getConfig('scroll');
+$title      = $this->getConfig('widget_title');
+?>
+<div class="<?php echo $this->getConfig('classes') ?> rit-widget-class"
+     id="<?php echo $id ?>"
+     data-animation="<?php echo $this->getConfig('animation'); ?>"
+     data-parallax="<?php echo $this->getConfig('parallax') ?>"
+     data-carousel="<?php echo $this->getConfig('carousel') ?>"
+     data-carouselConfig="null"
+     data-kenburns="<?php echo $this->getConfig('kenburns') ?>">
+    <?php if ($title): ?>
+        <h2><?php echo $title ?></h2>
+    <?php endif ?>
+    <div class="<?php echo $scroll==1 ? 'owl-carousel ' : '' ?>">
+        <?php foreach ($blocks as $block): ?>
+            <div class="<?php echo $block['class']?>">
+                <?php echo $block['content'] ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<tr>
+    <td class="label">
+        <?php echo $this->getElement()->getLabel()?>
+    </td>
+    <td class="value">
+        <input type="hidden" id="<?php echo $this->getElement()->getHtmlId()?>"/>
+        <?php echo $this->getElement()->getData('after_element_html')?>
+    </td>
+</tr>

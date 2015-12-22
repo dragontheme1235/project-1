@@ -1,0 +1,161 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+$helper = $this->helper('dgtnewsletter');
+$width = $helper->getCfgWidth();
+$height = $helper->getCfgHeight();
+$textColor = $helper->getCfgTextColor();
+$backgroundColor = $helper->getCfgBackgroundColor();
+$backgroundImage = $helper->getCfgBackgroundImage();
+$thumbImage = $helper->getCfgThumbnailImage();
+$desc = $helper->getCfgIntro();
+$enable = $helper->getCfgEnable();
+$title = $helper->getCfgTitle();
+$routeName = Mage::app()->getRequest()->getRouteName();
+?>
+<?php if ($routeName != 'ajaxcart' && $enable) { ?>
+    <div style="display: none">
+        <style type="text/css" scoped>
+            #cboxContent.newsletterbox {
+            <?php if($backgroundImage){?> background-image: url(<?php echo Mage::getBaseUrl('media').'/wysiwyg/dgtthemes/newsletter/'.$backgroundImage;?>);
+            <?php }?> background-position: left top;
+                background-repeat: no-repeat;
+                background-color: <?php echo $backgroundColor;?>;
+            }
+
+            #cboxContent .block-subscribe, #cboxContent .block-subscribe .block-title strong span {
+                color: <?php echo $textColor; ?>;
+                font-weight: 300;
+            }
+        </style>
+        <div id="dgt_newsletter" class="block block-subscribe">
+            <div class="row">
+                <?php if ($thumbImage) : ?>
+                    <div class="col-md-4 col-sm-4 dgt-pr0">
+                        <div class="popup_img">
+                            <img class="img-responsive" width="300" height="300"
+                                 src="<?php echo Mage::getBaseUrl('media') . '/wysiwyg/dgtthemes/newsletter/' . $thumbImage; ?>"
+                                 alt="img-popup"/>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <div class="<?php echo ($thumbImage) ? 'col-sm-8 col-md-8' : 'col-sm-12 col-md-12'; ?>">
+
+                    <div class="block-content">
+                        <div class="block-title">
+                            <span><?php echo $title; ?></span>
+                        </div>
+                        <div class="popup_message">
+                            <form action="<?php echo $this->getFormActionUrl() ?>" method="post"
+                                  id="dgt-newsletter-validate-detail">
+                                <div class="input-box">
+                                    <input name="email" type="text" id="dgt-newsletter"
+                                           value="<?php echo $this->__('Enter your email address') ?>"
+                                           onclick="this.value=='<?php echo $this->__('Enter your email address') ?>'?this.value='':''"
+                                           onblur="this.value==''?this.value='<?php echo $this->__('Enter your email address') ?>':''"
+                                           class="input-text required-entry validate-email"/>
+
+                                    <div class="actions">
+                                        <button type="submit" title="<?php echo $this->__('Subscribe') ?>"
+                                                class="button">
+                                            <span><span><?php echo $this->__('Subscribe') ?></span></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="intro">
+                            <?php echo $desc; ?>
+                        </div>
+                    </div>
+                </div>
+                <label class="subcriper_label">
+                    <input type="checkbox">
+                    <?php echo $this->__('Don’t show this popup again'); ?>
+                </label>
+            </div>
+            <script type="text/javascript">
+                //<![CDATA[
+                var dgtNewsletterSubscriberFormDetail = new VarienForm('dgt-newsletter-validate-detail');
+                $dgt(function ($) {
+                    isSuccess = $('ul.messages li.success-msg').length;
+                    subscribeFlag = $.cookie('dgtNewsletterExpiry');
+                    function subsSetcookie() {
+                        $.cookie('dgtNewsletterSubscribe', 'true', {
+                            expires: 30,
+                            path: '/'
+                        });
+                    }
+
+                    $('#dgt_newsletter .subcriper_label input').on('click', function () {
+                        if ($(this).parent().find('input:checked').length) {
+                            subsSetcookie();
+                        } else {
+                            $.removeCookie('dgtNewsletterSubscribe', {path: '/'});
+                        }
+                    });
+                    $('#dgt_newsletter .input-box button.button').on('click', function () {
+                        var button = $(this);
+                        setTimeout(function () {
+                            if (!button.parent().find('input#newsletter').hasClass('validation-failed')) {
+                                $.cookie('dgtNewsletterExpiry', 'true', {
+                                    path: '/'
+                                });
+                            }
+                        }, 500);
+                    });
+                    if (!(subscribeFlag && isSuccess) && !$.cookie('dgtNewsletterSubscribe')) {
+                        $.colorbox({
+                            inline: true,
+                            href: $('#dgt_newsletter'),
+                            opacity: 0.3,
+                            speed: 500,
+                            innerWidth: '<?php echo $width;?>px',
+                            innerHeight: '<?php echo $height;?>px',
+                            fixed: true,
+                            onOpen: function () {
+                                $('#cboxContent').addClass('newsletterbox');
+                                $('#cboxLoadingGraphic').addClass('box-loading');
+                            },
+                            onComplete: function () {
+                                setTimeout(function () {
+                                    $('#cboxLoadingGraphic').removeClass('box-loading');
+                                }, 800);
+                            },
+                            onClosed: function () {
+                                $('#cboxContent').removeClass('newsletterbox');
+                            }
+                        });
+                    } else {
+                        $.removeCookie('dgtNewsletterExpiry', {path: '/'});
+                        subsSetcookie();
+                    }
+                });
+                //]]>
+            </script>
+        </div>
+    </div>
+<?php } ?>

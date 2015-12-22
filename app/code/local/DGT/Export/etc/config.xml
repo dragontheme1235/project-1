@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category     Mono
+ * @package      DGT_Export
+ *
+ * @copyright    Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license      GNU General Public License version 2 or later;
+ * @author       dragontheme.com
+ * @email        support@dragontheme.com
+ *
+ */
+ -->
+<config>
+    <modules>
+        <DGT_Export>
+            <version>2.0.0</version>
+        </DGT_Export>
+    </modules>
+    <global>
+        <models>
+            <export>
+                <class>DGT_Export_Model</class>
+            </export>
+        </models>
+        <blocks>
+            <export>
+                <class>DGT_Export_Block</class>
+            </export>
+        </blocks>
+        <helpers>
+            <export>
+                <class>DGT_Export_Helper</class>
+            </export>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <export>
+                <use>standard</use>
+                <args>
+                    <module>DGT_Export</module>
+                    <frontName>export</frontName>
+                </args>
+            </export>
+        </routers>
+    </frontend>
+    <admin>
+        <routers>
+            <export>
+                <use>admin</use>
+                <args>
+                    <module>DGT_Export</module>
+                    <frontName>export</frontName>
+                </args>
+            </export>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <export>
+                    <file>dgt_export.xml</file>
+                </export>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

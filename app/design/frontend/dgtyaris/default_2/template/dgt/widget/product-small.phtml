@@ -1,0 +1,40 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<?php
+/* @var $this DGT_Widget_Block_Widget */
+$_id                = 'dgt-widget-'. rand(123456, 7891011);
+$_title             = $this->getConfig('widget_title');
+$t                  = microtime();
+?>
+<div class="dgt-widget <?php echo $this->getConfig('classes'); ?>" id="<?php echo $_id ?>">
+    <?php if ($_title): ?>
+        <div class="main-heading">
+            <div class="heading-wrapper-title">
+                <h3><span><?php echo $_title ?></span></h3>
+            </div>
+        </div>
+    <?php endif ?>
+    <?php echo $this->renderCollection('collection', $this->getData('mode'), 'dgt/widget/content-product-small.phtml') ?>
+</div>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') ?>dgt/widget/frontend.js"></script>
+<script type="text/javascript">
+    new DGT.Widget('<?php echo $_id ?>', {
+        animation: <?php echo $this->getConfig('animation') ?>,
+        parallax: <?php echo $this->getConfig('parallax') ?>,
+        carousel: <?php echo $this->getConfig('carousel') ?>,
+        carouselConfig: null,
+        countdown: <?php echo $this->getConfig('countdown') ?>,
+        countdownConfig: null,
+        countdownTemplate: '<div class="day"><span class="no">%d</span><span class="text">days</span></div><div class="hours"><span class="no">%h</span><span class="text">hours</span></div><div class="min"><span class="no">%i</span><span class="text">min</span></div><div class="second"><span class="no">%s</span><span class="text">secs</span></div>',
+        kenburns: <?php echo $this->getConfig('kenburns') ?>
+    });
+</script>
+<?php //Mage::log(microtime() - $t) ?>

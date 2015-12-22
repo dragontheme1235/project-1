@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+@category    DGT
+@package     DGT_Filter
+@copyright   Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+@license     GNU General Public License version 2 or later
+@author      dragontheme.com
+@email       support@dragontheme.com
+-->
+<layout>
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addJs">
+                <script>jscolor/jscolor.js</script>
+            </action>
+        </reference>
+    </adminhtml_system_config_edit>
+</layout>

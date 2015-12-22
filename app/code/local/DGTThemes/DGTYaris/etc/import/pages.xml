@@ -1,0 +1,101 @@
+<root><pages><cms_block><title>Yaris - Responsive Magento Theme</title><identifier>home</identifier><content><![CDATA[<p class="hide">home page</p>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>About Us</title><identifier>about-magento-demo-store</identifier><content><![CDATA[<div class="row">
+<div class="col-sm-9 col-md-9">
+<div class="page-title page-title-border">
+<h1>We Are Here To Serve You</h1>
+</div>
+<p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores veritatis et quasi architecto beatae vitae dicta sunt etras sits eos qui.</p>
+<div class="hidden">hidden</div>
+<p>Ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Asunt in anim uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.</p>
+</div>
+<div class="col-sm-3 col-md-3">
+<div class="page-title page-title-border">
+<h3>Our Crazy Skills</h3>
+</div>
+<div class="dgt-progress progress-bar progress-striped active" style="height: 37px; background-color: #f6f6f6; visibility: visible;">
+<div class="progress progress-bar-content" style="background-color: #60aebd; width: 95%;" data-percentage="90">&nbsp;</div>
+<span class="progress-title sr-only" style="color: #ffffff;">Web Design 95</span></div>
+<div class="dgt-progress progress-bar progress-striped active" style="height: 37px; background-color: #f6f6f6; visibility: visible;">
+<div class="progress progress-bar-content" style="background-color: #60aebd; width: 98%;" data-percentage="90">&nbsp;</div>
+<span class="progress-title sr-only" style="color: #ffffff;">HTML/CSS 98</span></div>
+<div class="dgt-progress progress-bar progress-striped active" style="height: 37px; background-color: #f6f6f6; visibility: visible;">
+<div class="progress progress-bar-content" style="background-color: #60aebd; width: 88%;" data-percentage="90">&nbsp;</div>
+<span class="progress-title sr-only" style="color: #ffffff;">Graphic Design 88</span></div>
+<div class="dgt-progress progress-bar progress-striped active" style="height: 37px; background-color: #f6f6f6; visibility: visible;">
+<div class="progress progress-bar-content" style="background-color: #60aebd; width: 92%;" data-percentage="90">&nbsp;</div>
+<span class="progress-title sr-only" style="color: #ffffff;">Magento 92</span></div>
+</div>
+</div>
+<p><div class="hidden">hidden</div></p>
+<p><div class="hidden">hidden</div></p>
+<p><div class="hidden">hidden</div></p>
+<div class="page-title page-title-border">
+<h3>Our Valuable Team Members</h3>
+</div>
+<div class="row">
+<div class="team-member col-md-4 col-sm-4">
+<div class="shortblog"><img class="img-responsive" src="{{media url="wysiwyg/dgtthemes/cms/team4.jpg"}}" alt="" /></div>
+<div class="pull-left">
+<h5 class="team-member-name"><a href="#">John Smith</a></h5>
+<h5 class="team-member-position">Developer</h5>
+</div>
+<div class="pull-right">
+<div class="dgt-social">
+<ul>
+<li><a class="facebook" href="#"><em class="fa-facebook-f fa"><span class="hidden">facebook</span></em></a></li>
+<li><a class="twitter" href="#"><em class="fa-twitter fa"><span class="hidden">twitter</span></em></a></li>
+<li><a class="youtube" href="#"><em class="fa-youtube fa"><span class="hidden">youtube</span></em></a></li>
+<li><a class="instagram" href="#"><em class="fa-instagram fa"><span class="hidden">instagram</span></em></a></li>
+</ul>
+</div>
+</div>
+<div class="team-member-details-wrap">
+<div class="team-member-bio">
+<p>edantium, totam rem aperiam, eaque ipsa qu ab illo inventore veritatis etra quasi architectos beatae vitae dicta es sunt explicabo sadips felis eltsa ipsums.</p>
+</div>
+</div>
+</div>
+<div class="team-member col-md-4 col-sm-4">
+<div class="shortblog"><img class="img-responsive" src="{{media url="wysiwyg/dgtthemes/cms/team5.jpg"}}" alt="" /></div>
+<div class="pull-left">
+<h5 class="team-member-name"><a href="#">John Smith</a></h5>
+<h5 class="team-member-position">Developer</h5>
+</div>
+<div class="pull-right">
+<div class="dgt-social">
+<ul>
+<li><a class="facebook" href="#"><em class="fa-facebook-f fa"><span class="hidden">facebook</span></em></a></li>
+<li><a class="twitter" href="#"><em class="fa-twitter fa"><span class="hidden">twitter</span></em></a></li>
+<li><a class="youtube" href="#"><em class="fa-youtube fa"><span class="hidden">youtube</span></em></a></li>
+<li><a class="instagram" href="#"><em class="fa-instagram fa"><span class="hidden">instagram</span></em></a></li>
+</ul>
+</div>
+</div>
+<div class="team-member-details-wrap">
+<div class="team-member-bio">
+<p>edantium, totam rem aperiam, eaque ipsa qu ab illo inventore veritatis etra quasi architectos beatae vitae dicta es sunt explicabo sadips felis eltsa ipsums.</p>
+</div>
+</div>
+</div>
+<div class="team-member col-md-4 col-sm-4">
+<div class="shortblog"><img class="img-responsive" src="{{media url="wysiwyg/dgtthemes/cms/team6.jpg"}}" alt="" /></div>
+<div class="pull-left">
+<h5 class="team-member-name"><a href="#">John Smith</a></h5>
+<h5 class="team-member-position">Developer</h5>
+</div>
+<div class="pull-right">
+<div class="dgt-social">
+<ul>
+<li><a class="facebook" href="#"><em class="fa-facebook-f fa"><span class="hidden">facebook</span></em></a></li>
+<li><a class="twitter" href="#"><em class="fa-twitter fa"><span class="hidden">twitter</span></em></a></li>
+<li><a class="youtube" href="#"><em class="fa-youtube fa"><span class="hidden">youtube</span></em></a></li>
+<li><a class="instagram" href="#"><em class="fa-instagram fa"><span class="hidden">instagram</span></em></a></li>
+</ul>
+</div>
+</div>
+<div class="team-member-details-wrap">
+<div class="team-member-bio">
+<p>edantium, totam rem aperiam, eaque ipsa qu ab illo inventore veritatis etra quasi architectos beatae vitae dicta es sunt explicabo sadips felis eltsa ipsums.</p>
+</div>
+</div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title>Blog</title><identifier>blog</identifier><content><![CDATA[<div class="hide">blog</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block></pages></root>

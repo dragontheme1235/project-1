@@ -1,0 +1,48 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<?php
+$attributes = $this->getAttibuteOptions();
+$id         = $this->getConfig('id');
+$scroll     = $this->getConfig('scroll');
+$title      = $this->getConfig('widget_title');
+?>
+<div class="<?php echo $this->getConfig('classes') ?> rit-widget-class"
+     id="<?php echo $id ?>"
+     data-animation="<?php echo $this->getConfig('animation'); ?>"
+     data-parallax="<?php echo $this->getConfig('parallax') ?>"
+     data-carousel="<?php echo $this->getConfig('carousel') ?>"
+     data-carouselConfig="null"
+     data-kenburns="<?php echo $this->getConfig('kenburns') ?>">
+    <?php if ($title): ?>
+        <h2><?php echo $title ?></h2>
+    <?php endif ?>
+    <ul class="<?php echo $scroll==1 ? 'owl-carousel ' : '' ?>">
+        <?php foreach ($attributes as $attribute): ?>
+            <li>
+                <?php if (isset($attribute['link'])): ?>
+                    <a href="<?php echo $attribute['link'] ?>" title="<?php echo $attribute['label'] ?>">
+                <?php endif ?>
+                <?php if ($attribute['image']): ?>
+                    <?php if ($scroll == 1): ?>
+                        <img class="lazyOwl" data-src="<?php echo $attribute['image'] ?>" alt="<?php echo $attribute['label'] ?>" />
+                    <?php else: ?>
+                        <img src="<?php echo $attribute['image'] ?>" alt="<?php echo $attribute['label'] ?>" />
+                    <?php endif ?>
+                <?php else: ?>
+                    <span><?php echo $attribute['label'] ?></span>
+                <?php endif ?>
+                <?php if (isset($attribute['link'])): ?>
+                    </a>
+                <?php endif ?>
+            </li>
+        <?php endforeach ?>
+    </ul>
+</div>

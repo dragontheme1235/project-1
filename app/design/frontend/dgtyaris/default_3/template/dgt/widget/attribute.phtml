@@ -1,0 +1,64 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<?php
+$attributes = $this->getAttibuteOptions();
+$id = 'dgt-widget-'. rand(123456, 7891011);
+$scroll = $this->getConfig('scroll');
+$title = $this->getConfig('widget_title');
+$_class = ($scroll) ? 'has-carousel' : 'no-carousel';
+if(!$title){
+    $_class .= ' carousel-no-title';
+}
+?>
+
+<div class="dgt-widget <?php echo $_class . ' ' . $this->getConfig('classes'); ?>" id="<?php echo $id ?>">
+    <?php if ($title): ?>
+    <div class="main-heading">
+        <div class="heading-wrapper-title">
+            <h3><span><?php echo $title ?></span></h3>
+        </div>
+    </div>
+    <?php endif ?>
+    <div class="dgt-list-brand">
+        <ul class="<?php echo $scroll == 1 ? 'owl-carousel ' : '' ?>">
+            <?php foreach ($attributes as $attribute): ?>
+                <li>
+                    <?php if (isset($attribute['link'])): ?>
+                    <a href="<?php echo $attribute['link'] ?>" title="<?php echo $attribute['label'] ?>">
+                        <?php endif ?>
+                        <?php if ($attribute['image'] || $attribute['thumb']): ?>
+                            <?php if ($scroll == 1): ?>
+                                <img class="lazyOwl img-responsive" data-src="<?php echo ($attribute['image']) ? $attribute['image'] : $attribute['thumb']; ?>"
+                                     alt="<?php echo $attribute['label'] ?>" src="<?php echo ($attribute['image']) ? $attribute['image'] : $attribute['thumb']; ?>"/>
+                            <?php else: ?>
+                                <img src="<?php echo ($attribute['image']) ? $attribute['image'] : $attribute['thumb']; ?>" alt="<?php echo $attribute['label'] ?>"/>
+                            <?php endif ?>
+                        <?php else: ?>
+                            <span><?php echo $attribute['label'] ?></span>
+                        <?php endif ?>
+                        <?php if (isset($attribute['link'])): ?>
+                    </a>
+                <?php endif ?>
+                </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+    <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') ?>dgt/widget/frontend.js"></script>
+    <script type="text/javascript">
+        new DGT.Widget('<?php echo $id ?>', {
+            animation: <?php echo $this->getConfig('animation') ?>,
+            parallax: <?php echo $this->getConfig('parallax') ?>,
+            carousel: <?php echo $this->getConfig('carousel') ?>,
+            carouselConfig: null,
+            kenburns: <?php echo $this->getConfig('kenburns') ?>
+        });
+    </script>
+</div>

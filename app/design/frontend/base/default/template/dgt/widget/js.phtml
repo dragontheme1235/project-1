@@ -1,0 +1,28 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<script type="text/javascript">
+    var DGT = DGT || {};
+    DGT.FORM_KEY = '<?php echo Mage::getSingleton('core/session')->getFormKey() ?>';
+
+    function setLocationWidget(url){
+        if (url.indexOf('form_key/') !== -1){
+            var part = url.split('form_key/')[1],
+                formKey = part.split('/')[0];
+
+            if (!formKey) return;
+
+            var newUrl = url.replace(formKey, DGT.FORM_KEY || '');
+
+            if (setLocation) setLocation(newUrl);
+            else window.location.href = newUrl;
+        }
+    }
+</script>

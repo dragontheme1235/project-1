@@ -1,0 +1,33 @@
+<?php
+/**
+ * @category    DGT
+ * @package     DGT_Widget
+ * Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later
+ * @author      dragontheme.com
+ * @email       support@dragontheme.com
+ */
+?>
+<?php
+/* @var $this DGT_Widget_Block_Widget */
+$_id                = 'dgt-widget-'. rand(123456, 7891011);
+$_title             = $this->getConfig('widget_title');
+$t                  = microtime();
+?>
+<div class="dgt-widget <?php echo $this->getConfig('classes') ?> rit-widget-class"
+     id="<?php echo $id ?>"
+     data-animation="<?php echo $this->getConfig('animation'); ?>"
+     data-parallax="<?php echo $this->getConfig('parallax') ?>"
+     data-carousel="<?php echo $this->getConfig('carousel') ?>"
+     data-carouselConfig="null"
+     data-countdown="<?php echo $this->getConfig('countdown') ?>"
+     data-countdownConfig="null"
+     data-kenburns="<?php echo $this->getConfig('kenburns') ?>">
+    <?php if ($_title): ?>
+        <h2><?php echo $_title ?></h2>
+    <?php endif ?>
+    <div class="upsell-products-wrap product-boxed">
+        <?php echo $this->renderCollection('collection', $this->getData('mode'), 'dgt/widget/content-product-upsell.phtml') ?>
+    </div>
+</div>
+<?php //Mage::log(microtime() - $t) ?>

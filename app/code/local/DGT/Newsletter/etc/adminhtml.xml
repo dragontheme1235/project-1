@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category     Mono
+ * @package      DGT_Newsletter
+ *
+ * @copyright    Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license      GNU General Public License version 2 or later;
+ * @author       dragontheme.com
+ * @email        support@dragontheme.com
+ **
+ */
+ -->
+<config>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <dgtnewsletter>
+                                        <title>DGT Review</title>
+                                    </dgtnewsletter>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

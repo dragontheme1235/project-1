@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category     Mono
+ * @package DGT Framework
+ *
+ * @copyright    Copyright (C) 2014-2015 dragontheme.com. All Rights Reserved.
+ * @license      GNU General Public License version 2 or later;
+ * @author       dragontheme.com
+ * @email        support@dragontheme.com
+ *
+ */
+-->
+<layout>
+    <dgtyaris_adminhtml_support_index>
+        <reference name="content">
+            <block type="dgtyaris/adminhtml_support" name="adminhtml_support"/>
+        </reference>
+    </dgtyaris_adminhtml_support_index>
+</layout>

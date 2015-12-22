@@ -1,0 +1,15 @@
+<?php if($this->getCurrencyCount()>1): ?>
+<div class="currency-top dgt-hover pull-left">
+<span>
+    <?php foreach ($this->getCurrencies() as $_code => $_name): ?>
+       <?php echo ($_code==$this->getCurrentCurrencyCode()) ? $_code : ''; ?>
+    <?php endforeach; ?>
+    <i class="fa fa-angle-down"></i>
+</span>
+<ul>
+    <?php foreach ($this->getCurrencies() as $_code => $_name): ?>
+    <li><a href="<?php echo $this->helper('directory/url')->getSwitchCurrencyUrl() ?>currency/<?php echo $_code ?>" <?php if($_code==$this->getCurrentCurrencyCode()): ?> class="active"<?php endif; ?>><?php echo $_code ?></a></li>
+    <?php endforeach; ?>
+</ul>
+</div>
+<?php endif; ?>
