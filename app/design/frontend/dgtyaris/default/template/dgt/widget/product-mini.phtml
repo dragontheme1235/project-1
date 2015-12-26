@@ -14,14 +14,15 @@ $_id                = 'dgt-widget-'. rand(123456, 7891011);
 $_title             = $this->getConfig('widget_title');
 $t                  = microtime();
 ?>
-<div class="dgt-widget product-mini-wrap <?php echo $this->getConfig('classes'); ?> rit-widget-class"
+<div class="dgt-widget product-mini-wrap <?php echo $this->getConfig('classes'); ?> dgt-widget-class"
      id="<?php echo $id ?>"
 
 
-     data-carousel="<?php echo $this->getConfig('carousel') ?>"
+     data-carousel='<?php echo $this->getConfig('carousel') ?>'
      data-carouselConfig="null"
-     data-countdown="<?php echo $this->getConfig('countdown') ?>"
-     data-countdownConfig="null"
+     data-spinnerImg='<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>'
+     data-countdown='<?php echo $this->getConfig('countdown') ?>'
+
      data-countdownTemplate="true"
      >
     <?php if ($_title): ?>

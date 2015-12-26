@@ -6,13 +6,10 @@
  * @author      dragontheme.com
  * @email       support@dragontheme.com
  */
-alert($('.rit-widget-class').length);
+
 
 
 ;'use strict';
-
-
-
 
 if(typeof DGT == "undefined"){
     var DGT = {};
@@ -33,6 +30,20 @@ if(typeof DGT == "undefined"){
             this.id = id;
             this.container = $(id);
             this.config = config || {};
+
+            this.config.carousel = this.container.readAttribute('carousel');
+            this.config.carouselConfig = this.container.readAttribute('carouselConfig');
+
+            this.config.collectionUrl = this.container.readAttribute('collectionUrl');
+            this.config.collectionCallback = this.container.readAttribute('collectionCallback');
+            this.config.spinnerClass = this.container.readAttribute('spinnerClass');
+            this.config.spinnerImg = this.container.readAttribute('spinnerImg');
+
+            this.config.spinnerImg = this.container.readAttribute('spinnerImg');
+            this.config.carousel = this.container.readAttribute('carousel');
+            this.config.carousel = this.container.readAttribute('carousel');
+
+
 
             this.checkCSS3Support();
 

@@ -30,14 +30,13 @@ $_id                = $this->getConfig('id');
 $_title             = $this->getConfig('widget_title');
 ?>
 <?php if ($this->checkCollectionSize('collection', $this->getData('mode'))): ?>
-<div class="<?php echo $this->getConfig('classes') ?> rit-widget-class"
+<div class="<?php echo $this->getConfig('classes') ?> dgt-widget-class"
      id="<?php echo $id ?>"
 
 
-     data-carousel="<?php echo $this->getConfig('carousel') ?>"
+     data-carousel='<?php echo $this->getConfig('carousel') ?>'
      data-carouselConfig="null"
-     data-countdown="<?php echo $this->getConfig('countdown') ?>"
-     data-countdownConfig="null"
+
      >
     <?php if ($_title): ?>
         <h2><?php echo $_title ?></h2>

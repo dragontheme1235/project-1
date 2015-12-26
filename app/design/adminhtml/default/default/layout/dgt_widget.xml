@@ -28,7 +28,6 @@
 
             <action method="addJs"><script>dgt/widget/video.js</script></action>
             <action method="addJs"><script>dgt/widget/widget.js</script></action>
-            <action method="addJs"><script>dgt/widget/frontend.js</script></action>
         </reference>
     </adminhtml_widget_instance_edit>
     <adminhtml_cms_page_edit>
@@ -49,7 +48,6 @@
 
             <action method="addJs"><script>dgt/widget/video.js</script></action>
             <action method="addJs"><script>dgt/widget/widget.js</script></action>
-            <action method="addJs"><script>dgt/widget/frontend.js</script></action>
         </reference>
     </adminhtml_cms_page_edit>
     <adminhtml_cms_block_edit>
@@ -70,7 +68,6 @@
 
             <action method="addJs"><script>dgt/widget/video.js</script></action>
             <action method="addJs"><script>dgt/widget/widget.js</script></action>
-            <action method="addJs"><script>dgt/widget/frontend.js</script></action>
         </reference>
     </adminhtml_cms_block_edit>
 </layout>

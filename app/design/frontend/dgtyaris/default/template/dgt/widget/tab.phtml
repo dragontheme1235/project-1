@@ -16,18 +16,18 @@ $tabs       = $this->getTabs();
 $template   = 'dgt/widget/collection.phtml';
 $t          = microtime();
 ?>
-<div class="dgt-widget <?php echo $this->getConfig('classes') ?> rit-widget-class"
+<div class="dgt-widget <?php echo $this->getConfig('classes') ?> dgt-widget-class"
      id="<?php echo $id ?>"
 
-     data-collectionUrl="<?php echo $this->getUrl('dgtwidget/collection/get') ?>"
+     data-collectionUrl='<?php echo $this->getUrl('dgtwidget/collection/get') ?>'
      data-collectionCallback="true"
      data-spinnerClass="spinner"
-     data-spinnerImg="<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>"
+     data-spinnerImg='<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>'
 
-     data-carousel="<?php echo $this->getConfig('carousel') ?>"
+     data-carousel='<?php echo $this->getConfig('carousel') ?>'
      data-carouselConfig="null"
-     data-countdown="<?php echo $this->getConfig('countdown') ?>"
-     data-countdownConfig="null"
+     data-countdown='<?php echo $this->getConfig('countdown') ?>'
+
      >
     <div class="tabs-collection">
         <div class="main-heading">

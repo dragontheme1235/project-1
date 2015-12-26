@@ -21,14 +21,15 @@ $_limit = 10;
 $_class = ($_carousel) ? 'has-carousel' : 'no-carousel';
 ?>
 
-<div class="dgt-widget <?php echo $_class . ' ' . $this->getConfig('classes'); ?> rit-widget-class"
+<div class="dgt-widget <?php echo $_class . ' ' . $this->getConfig('classes'); ?> dgt-widget-class"
      id="<?php echo $id ?>"
 
 
-     data-carousel="<?php echo $this->getConfig('carousel') ?>"
+     data-carousel='<?php echo $this->getConfig('carousel') ?>'
      data-carouselConfig="null"
-     data-countdown="<?php echo $this->getConfig('countdown') ?>"
-     data-countdownConfig="null"
+     data-spinnerImg='<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>'
+     data-countdown='<?php echo $this->getConfig('countdown') ?>'
+
      data-countdownTemplate="true"
      >
     <div class="main-heading">

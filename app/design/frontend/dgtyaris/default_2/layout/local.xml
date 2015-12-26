@@ -27,6 +27,8 @@
 
             <action method="addJs" ifconfig="dgtnewsletter/display_options/enable"><script>dgtthemes/jquery/plugins/jquery.cookie.js</script></action>
 
+            <action method="addJs"><script>dgt/widget/frontend.js</script></action>
+
             <!-- CSS: -->
             <!-- Components -->
             <action method="addItem"><type>skin_css</type><name>css/bootstrap/bootstrap.min.css</name><params/></action>

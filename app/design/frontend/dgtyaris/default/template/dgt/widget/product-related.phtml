@@ -31,11 +31,11 @@ $_title             = $this->getConfig('widget_title');
 ?>
 <?php if ($this->checkCollectionSize('collection', $this->getData('mode'))): ?>
     <div class="block block-related">
-        <div class="dgt-widget <?php echo $this->getConfig('classes') ?>category-products  related-product rit-widget-class"
+        <div class="dgt-widget <?php echo $this->getConfig('classes') ?>category-products  related-product dgt-widget-class"
              id="<?php echo $id ?>"
 
 
-             data-carousel="<?php echo $this->getConfig('carousel') ?>"
+             data-carousel='<?php echo $this->getConfig('carousel') ?>'
              data-carouselConfig="null"
              >
             <div class="main-heading">
