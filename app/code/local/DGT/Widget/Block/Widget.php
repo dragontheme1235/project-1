@@ -41,7 +41,6 @@ class DGT_Widget_Block_Widget extends Mage_Catalog_Block_Product_Abstract implem
             $this->getData('scroll'),
             $this->getData('row'),
             $this->getData('column'),
-            $this->getData('background')
         );
     }
 
@@ -274,28 +273,6 @@ class DGT_Widget_Block_Widget extends Mage_Catalog_Block_Product_Abstract implem
         return $options;
     }
 
-    protected function _getKenburnsImages(){
-        $prefix = Mage::getBaseUrl('media');
-        $images = $this->getData('kenburns_images');
-        $out = array();
-
-        if (!is_array($images)){
-            $images = explode(',', $images);
-        }
-
-        foreach ($images as $image){
-            if ($image){
-                $out[] = strpos($image, 'http') !== false ? $image : $prefix . $image;
-            }
-        }
-
-        if (count($out) == 1){
-            $out[] = $out[0];
-        }
-
-        return $out;
-    }
-
     public function getConfig($name, $param=null){
         /* @var $helper Mage_Core_Helper_Data */
         $helper = Mage::helper('core');
@@ -319,60 +296,6 @@ class DGT_Widget_Block_Widget extends Mage_Catalog_Block_Product_Abstract implem
                     'minSingularText'   => Mage::helper('dgtwidget')->__('min'),
                     'secSingularText'   => Mage::helper('dgtwidget')->__('sec'),
                     'engineSrc'         => Mage::getBaseUrl('js') . 'dgt/extensions/jquery/plugins/jquery.jcountdown.min.js'
-                ));
-                break;
-            case 'kenburns':
-                return $helper->jsonEncode(array(
-                    'enable'    => $this->getData('background') == 'kenburns',
-                    'images'    => $this->_getKenburnsImages(),
-                    'overlay'   => $this->getData('background_overlay'),
-                    'engineSrc' => Mage::getBaseUrl('js') . 'dgt/extensions/jquery/plugins/kenburns.js'
-                ));
-                break;
-            case 'parallax':
-                return $helper->jsonEncode(array(
-                    'enable'    => $this->getData('background') == 'parallax',
-                    'type'      => $this->getData('parallax_type'),
-                    'overlay'   => $this->getData('background_overlay'),
-                    'video'     => array(
-                        'src'       => $this->getData('parallax_video_src'),
-                        'volume'    => (bool) $this->getData('parallax_video_volume'),
-                    ),
-                    'image'     => array(
-                        'src'       => $this->getData('parallax_image_src') ?
-                                        (
-                                            strpos($this->getData('parallax_image_src'), 'http') === 0 ?
-                                            $this->getData('parallax_image_src') :
-                                            Mage::getBaseUrl('media') . $this->getData('parallax_image_src')
-                                        ):
-                                        null,
-                        'fit'       => $this->getData('parallax_image_fit'),
-                        'repeat'    => $this->getData('parallax_image_repeat')
-                    ),
-                    'file'      => array(
-                        'poster'    => $this->getData('parallax_video_poster') ?
-                                        (
-                                            strpos($this->getData('parallax_video_poster'), 'http') === 0 ?
-                                            $this->getData('parallax_video_poster') :
-                                            Mage::getBaseUrl('media') . $this->getData('parallax_video_poster')
-                                        ):
-                                        null,
-                        'mp4'       => $this->getData('parallax_video_mp4') ?
-                                        (
-                                            strpos($this->getData('parallax_video_mp4'), 'http') === 0 ?
-                                            $this->getData('parallax_video_mp4') :
-                                            Mage::getBaseUrl('media') . $this->getData('parallax_video_mp4')
-                                        ):
-                                        null,
-                        'webm'      => $this->getData('parallax_video_webm') ?
-                                        (
-                                            strpos($this->getData('parallax_video_webm'), 'http') === 0 ?
-                                            $this->getData('parallax_video_webm') :
-                                            Mage::getBaseUrl('media') . $this->getData('parallax_video_webm')
-                                        ):
-                                        null,
-                        'volume'    => (bool) $this->getData('parallax_video_volume')
-                    )
                 ));
                 break;
             case 'carousel':
