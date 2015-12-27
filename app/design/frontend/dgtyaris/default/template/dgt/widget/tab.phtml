@@ -10,25 +10,12 @@
 ?>
 <?php
 /* @var $this DGT_Widget_Block_Widget */
-$id         = 'dgt-widget-'. rand(123456, 7891011);
+$id         = $this->getConfig('id');
 $title      = $this->getConfig('widget_title');
 $tabs       = $this->getTabs();
 $template   = 'dgt/widget/collection.phtml';
-$t          = microtime();
 ?>
-<div class="dgt-widget <?php echo $this->getConfig('classes') ?> dgt-widget-class"
-     id="<?php echo $id ?>"
-
-     data-collectionUrl='<?php echo $this->getUrl('dgtwidget/collection/get') ?>'
-     data-collectionCallback="true"
-     data-spinnerClass="spinner"
-     data-spinnerImg='<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>'
-
-     data-carousel='<?php echo $this->getConfig('carousel') ?>'
-     data-carouselConfig="null"
-     data-countdown='<?php echo $this->getConfig('countdown') ?>'
-
-     >
+<div class="dgt-widget <?php echo $this->getConfig('classes') ?>" id="<?php echo $id ?>">
     <div class="tabs-collection">
         <div class="main-heading">
             <div class="heading-wrapper-title">
@@ -65,5 +52,18 @@ $t          = microtime();
             </div>
         <?php endforeach ?>
     </div>
+
+    <script type="text/javascript">
+        new DGT.Widget('<?php echo $id ?>', {
+            collectionUrl: '<?php echo $this->getUrl('dgtwidget/collection/get') ?>',
+            collectionCallback: function(){},
+            spinnerClass: 'spinner',
+            spinnerImg: '<?php echo $this->getSkinUrl('images/loader.gif') ?>',
+            carousel: <?php echo $this->getConfig('carousel') ?>,
+            carouselConfig: null,
+            countdown: <?php echo $this->getConfig('countdown') ?>,
+            countdownConfig: null,
+        });
+    </script>
 </div>
 <?php //Mage::log(microtime() - $t) ?>

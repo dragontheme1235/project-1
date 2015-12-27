@@ -11,7 +11,7 @@
 <?php
 /* @var $this DGT_Widget_Block_Widget */
 $categories = $this->getCategories();
-$id         = 'dgt-widget-'. rand(123456, 7891011);
+$id         = $this->getConfig('id');
 $scroll     = $this->getConfig('scroll');
 $title      = $this->getConfig('widget_title');
 ?>
@@ -27,14 +27,11 @@ $title      = $this->getConfig('widget_title');
             </div>
         <?php endforeach ?>
     </div>
-    <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') ?>dgt/widget/frontend.js"></script>
+
     <script type="text/javascript">
         new DGT.Widget('<?php echo $id ?>', {
-            animation: <?php echo $this->getConfig('animation') ?>,
-            parallax: <?php echo $this->getConfig('parallax') ?>,
             carousel: <?php echo $this->getConfig('carousel') ?>,
-            carouselConfig: null,
-            kenburns: <?php echo $this->getConfig('kenburns') ?>
+            carouselConfig: null
         });
     </script>
 </div>

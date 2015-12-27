@@ -10,7 +10,7 @@
 ?>
 <?php
 $blocks = $this->getBlocks();
-$id = 'dgt-widget-'. rand(123456, 7891011);
+$id = $this->getConfig('id');
 $scroll = $this->getConfig('scroll');
 $title = $this->getConfig('widget_title');
 $parallax_full = $this->getConfig('parallax_full');
@@ -38,14 +38,11 @@ if($parallax_full == 1){
         </div>
         <?php endif; ?>
     </div>
-    <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') ?>dgt/widget/frontend.js"></script>
+
     <script type="text/javascript">
         new DGT.Widget('<?php echo $id ?>', {
-            animation: <?php echo $this->getConfig('animation') ?>,
-            parallax: <?php echo $this->getConfig('parallax') ?>,
             carousel: <?php echo $this->getConfig('carousel') ?>,
-            carouselConfig: null,
-            kenburns: <?php echo $this->getConfig('kenburns') ?>
+            carouselConfig: null
         });
     </script>
 </div>

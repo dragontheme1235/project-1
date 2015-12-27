@@ -10,11 +10,10 @@
 ?>
 <?php
 /* @var $this DGT_Widget_Block_Widget */
-$id         = 'dgt-widget-'. rand(123456, 7891011);
+$id         = $this->getConfig('id');
 $title      = $this->getConfig('widget_title');
 $tabs       = $this->getTabs();
 $template   = 'dgt/widget/collection.phtml';
-$t          = microtime();
 ?>
 <div class="dgt-widget <?php echo $this->getConfig('classes') ?>" id="<?php echo $id ?>">
     <div class="tabs-collection">
@@ -53,20 +52,17 @@ $t          = microtime();
             </div>
         <?php endforeach ?>
     </div>
-    <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') ?>dgt/widget/frontend.js"></script>
+
     <script type="text/javascript">
         new DGT.Widget('<?php echo $id ?>', {
-            animation: <?php echo $this->getConfig('animation') ?>,
             collectionUrl: '<?php echo $this->getUrl('dgtwidget/collection/get') ?>',
             collectionCallback: function(){},
             spinnerClass: 'spinner',
             spinnerImg: '<?php echo $this->getSkinUrl('images/loader.gif') ?>',
-            parallax: <?php echo $this->getConfig('parallax') ?>,
             carousel: <?php echo $this->getConfig('carousel') ?>,
             carouselConfig: null,
             countdown: <?php echo $this->getConfig('countdown') ?>,
-            countdownConfig: null,
-            kenburns: <?php echo $this->getConfig('kenburns') ?>
+            countdownConfig: null
         });
     </script>
 </div>

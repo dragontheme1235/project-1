@@ -10,20 +10,10 @@
 ?>
 <?php
 /* @var $this DGT_Widget_Block_Widget */
-$_id                = 'dgt-widget-'. rand(123456, 7891011);
+$_id                = $this->getConfig('id');
 $_title             = $this->getConfig('widget_title');
-$t                  = microtime();
 ?>
-<div class="dgt-widget <?php echo $this->getConfig('classes'); ?> dgt-widget-class"
-     id="<?php echo $id ?>"
-
-
-     data-carousel='<?php echo $this->getConfig('carousel') ?>'
-     data-carouselConfig="null"
-     data-spinnerImg='<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>'
-     data-countdown='<?php echo $this->getConfig('countdown') ?>'
-     data-countdownTemplate="true"
-     >
+<div class="dgt-widget <?php echo $this->getConfig('classes'); ?>" id="<?php echo $_id ?>">
     <?php if ($_title): ?>
         <div class="main-heading">
             <div class="heading-wrapper-title">
@@ -33,4 +23,14 @@ $t                  = microtime();
     <?php endif ?>
     <?php echo $this->renderCollection('collection', $this->getData('mode'), 'dgt/widget/content-product-sidebar.phtml') ?>
 </div>
+
+<script type="text/javascript">
+    new DGT.Widget('<?php echo $_id ?>', {
+        carousel: <?php echo $this->getConfig('carousel') ?>,
+        carouselConfig: null,
+        countdown: <?php echo $this->getConfig('countdown') ?>,
+        countdownConfig: null,
+        countdownTemplate: '<div class="day"><span class="time">%d</span><span class="label">days</span></div><div class="hours"><span class="time">%h</span><span class="label">hours</span></div><div class="min"><span class="time">%i</span><span class="label">min</span></div><div class="second"><span class="time">%s</span><span class="label">secs</span></div>'
+    });
+</script>
 <?php //Mage::log(microtime() - $t) ?>

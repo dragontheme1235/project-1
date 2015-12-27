@@ -13,7 +13,7 @@
 $blogModel = new AW_Blog_Block_Blog();
 $posts = $blogModel->getPosts();
 
-$_id = 'dgt-widget-' . rand(123456, 7891011);
+$_id = $this->getConfig('id');
 $scroll = $this->getConfig('scroll');
 $_title = $this->getConfig('widget_title');
 $_carousel = $this->getConfig('carousel');
@@ -21,17 +21,7 @@ $_limit = 10;
 $_class = ($_carousel) ? 'has-carousel' : 'no-carousel';
 ?>
 
-<div class="dgt-widget <?php echo $_class . ' ' . $this->getConfig('classes'); ?> dgt-widget-class"
-     id="<?php echo $id ?>"
-
-
-     data-carousel='<?php echo $this->getConfig('carousel') ?>'
-     data-carouselConfig="null"
-     data-spinnerImg='<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>'
-     data-countdown='<?php echo $this->getConfig('countdown') ?>'
-
-     data-countdownTemplate="true"
-     >
+<div class="dgt-widget <?php echo $_class . ' ' . $this->getConfig('classes'); ?>" id="<?php echo $_id ?>">
     <div class="main-heading">
         <div class="heading-wrapper-title">
             <?php if ($_title): ?>
@@ -82,4 +72,14 @@ $_class = ($_carousel) ? 'has-carousel' : 'no-carousel';
     <?php endif; ?>
     </div>
 </div>
+
+<script type="text/javascript">
+    new DGT.Widget('<?php echo $_id ?>', {
+        carousel: <?php echo $this->getConfig('carousel') ?>,
+        carouselConfig: null,
+        countdown: <?php echo $this->getConfig('countdown') ?>,
+        countdownConfig: null,
+        countdownTemplate: '<div class="day"><span class="no">%d</span><span class="text">days</span></div><div class="hours"><span class="no">%h</span><span class="text">hours</span></div><div class="min"><span class="no">%i</span><span class="text">min</span></div><div class="second"><span class="no">%s</span><span class="text">secs</span></div>'
+    });
+</script>
 <?php //Mage::log(microtime() - $t) ?>

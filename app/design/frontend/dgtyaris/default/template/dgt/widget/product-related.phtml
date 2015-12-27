@@ -26,18 +26,12 @@
 ?>
 <?php
 /* @var $this DGT_Widget_Block_Widget */
-$_id                = 'dgt-widget-'. rand(123456, 7891011);
+$_id                = $this->getConfig('id');
 $_title             = $this->getConfig('widget_title');
 ?>
 <?php if ($this->checkCollectionSize('collection', $this->getData('mode'))): ?>
     <div class="block block-related">
-        <div class="dgt-widget <?php echo $this->getConfig('classes') ?>category-products  related-product dgt-widget-class"
-             id="<?php echo $id ?>"
-
-
-             data-carousel='<?php echo $this->getConfig('carousel') ?>'
-             data-carouselConfig="null"
-             >
+        <div class="dgt-widget <?php echo $this->getConfig('classes') ?>category-products  related-product" id="<?php echo $_id ?>">
             <div class="main-heading">
                 <div class="heading-wrapper-title">
                     <?php if ($_title): ?>
@@ -87,5 +81,12 @@ $_title             = $this->getConfig('widget_title');
             $('related-products-field').value = values.join(',');
         }
     }
+</script>
+
+<script type="text/javascript">
+    new DGT.Widget('<?php echo $_id ?>', {
+        carousel: <?php echo $this->getConfig('carousel') ?>,
+        carouselConfig: null
+    });
 </script>
 <?php endif ?>

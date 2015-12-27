@@ -16,19 +16,7 @@ $tabs       = $this->getTabs();
 $template   = 'dgt/widget/collection.phtml';
 $t          = microtime();
 ?>
-<div class="<?php echo $this->getConfig('classes') ?> dgt-widget-class"
-    id="<?php echo $id ?>"
-
-    data-collectionUrl='<?php echo $this->getUrl('dgtwidget/collection/get') ?>'
-    data-collectionCallback="true"
-    data-spinnerClass="spinner"
-    data-spinnerImg='<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>'
-
-    data-carousel='<?php echo $this->getConfig('carousel') ?>'
-    data-carouselConfig="null"
-     data-countdown='<?php echo $this->getConfig('countdown') ?>'
-
-    >
+<div class="<?php echo $this->getConfig('classes') ?>" id="<?php echo $id ?>">
     <?php if ($title): ?>
         <h2><?php echo $title ?></h2>
     <?php endif ?>
@@ -60,5 +48,24 @@ $t          = microtime();
             </div>
         <?php endforeach ?>
     </div>
+
+    <script type="text/javascript">
+        document.observe("dom:loaded", function() {
+            new DGT.Widget('<?php echo $id ?>', {
+                animation: <?php echo $this->getConfig('animation') ?>,
+                collectionUrl: '<?php echo $this->getUrl('dgtwidget/collection/get') ?>',
+                collectionCallback: function () {
+                },
+                spinnerClass: 'spinner',
+                spinnerImg: '<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>',
+                parallax: <?php echo $this->getConfig('parallax') ?>,
+                carousel: <?php echo $this->getConfig('carousel') ?>,
+                carouselConfig: null,
+                countdown: <?php echo $this->getConfig('countdown') ?>,
+                countdownConfig: null,
+                kenburns: <?php echo $this->getConfig('kenburns') ?>
+            });
+        });
+    </script>
 </div>
 <?php //Mage::log(microtime() - $t) ?>

@@ -30,14 +30,7 @@ $_id                = $this->getConfig('id');
 $_title             = $this->getConfig('widget_title');
 ?>
 <?php if ($this->checkCollectionSize('collection', $this->getData('mode'))): ?>
-<div class="<?php echo $this->getConfig('classes') ?> dgt-widget-class"
-     id="<?php echo $id ?>"
-
-
-     data-carousel='<?php echo $this->getConfig('carousel') ?>'
-     data-carouselConfig="null"
-
-     >
+<div class="<?php echo $this->getConfig('classes') ?>" id="<?php echo $_id ?>">
     <?php if ($_title): ?>
         <h2><?php echo $_title ?></h2>
     <?php endif ?>
@@ -80,5 +73,19 @@ $_title             = $this->getConfig('widget_title');
             $('related-products-field').value = values.join(',');
         }
     }
+</script>
+
+<script type="text/javascript">
+    document.observe("dom:loaded", function() {
+        new DGT.Widget('<?php echo $_id ?>', {
+            animation: <?php echo $this->getConfig('animation') ?>,
+            parallax: <?php echo $this->getConfig('parallax') ?>,
+            carousel: <?php echo $this->getConfig('carousel') ?>,
+            carouselConfig: null,
+            countdown: <?php echo $this->getConfig('countdown') ?>,
+            countdownConfig: null,
+            kenburns: <?php echo $this->getConfig('kenburns') ?>
+        });
+    });
 </script>
 <?php endif ?>

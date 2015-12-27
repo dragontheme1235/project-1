@@ -10,7 +10,7 @@
 ?>
 <?php
 $blocks = $this->getBlocks();
-$id = 'dgt-widget-'. rand(123456, 7891011);
+$id = $this->getConfig('id');
 $scroll = $this->getConfig('scroll');
 $title = $this->getConfig('widget_title');
 $parallax_full = $this->getConfig('parallax_full');
@@ -19,13 +19,7 @@ if($parallax_full == 1){
     $_class .= ' dgt-parallax parallax-full';
 }
 ?>
-<div class="dgt-widget <?php echo $_class . ' ' . $this->getConfig('classes'); ?> dgt-widget-class"
-     id="<?php echo $id ?>"
-
-
-     data-carousel='<?php echo $this->getConfig('carousel') ?>'
-     data-carouselConfig="null"
-     >
+<div class="dgt-widget <?php echo $_class . ' ' . $this->getConfig('classes'); ?>" id="<?php echo $id ?>">
     <div class="block block-widget row clearfix">
         <?php if ($title): ?>
             <div class="block-title">
@@ -44,4 +38,13 @@ if($parallax_full == 1){
         </div>
         <?php endif; ?>
     </div>
+
+    <script type="text/javascript">
+        document.observe("dom:loaded", function() {
+            new DGT.Widget('<?php echo $id ?>', {
+                carousel: <?php echo $this->getConfig('carousel') ?>,
+                carouselConfig: null
+            });
+        });
+    </script>
 </div>

@@ -41,7 +41,6 @@ class DGT_Widget_Block_Widget extends Mage_Catalog_Block_Product_Abstract implem
             $this->getData('scroll'),
             $this->getData('row'),
             $this->getData('column'),
-            $this->getData('animate'),
             $this->getData('background')
         );
     }
@@ -393,20 +392,11 @@ class DGT_Widget_Block_Widget extends Mage_Catalog_Block_Product_Abstract implem
                     'engineSrc'     => Mage::getBaseUrl('js') . 'dgt/extensions/jquery/plugins/owl-carousel/owl.carousel.js'
                 ));
                 break;
-            case 'animation':
-                return $helper->jsonEncode(array(
-                    'enable'        => (bool) $this->getData('animate'),
-                    'animationName' => $this->getData('animation'),
-                    'animationDelay'=> is_numeric($this->getData('animation_delay')) ? (int) $this->getData('animation_delay') : 300,
-                    'itemSelector'  => $this->getData('animate_item_selector'),
-                    'engineSrc'     => Mage::getBaseUrl('js') . 'dgt/extensions/wow/wow.js'
-                ));
-                break;
             case 'widget_title':
                 return $this->escapeHtml($this->getData('widget_title'));
                 break;
             case 'id':
-                return $helper->uniqHash(is_string($param) ? $param : 'widget-');
+                return $helper->uniqHash(is_string($param) ? $param : 'dgt-widget-');
                 break;
             case 'row':
                 return is_numeric($this->getData('row')) ? (int) $this->getData('row') : 1;
@@ -418,7 +408,7 @@ class DGT_Widget_Block_Widget extends Mage_Catalog_Block_Product_Abstract implem
                 return is_numeric($this->getData('limit')) ? (int) $this->getData('limit') : 1;
                 break;
             case 'classes':
-                return $this->getData('classes') . ($this->getData('animate') ? ' ' . $this->getData('animation') : '');
+                return $this->getData('classes');
                 break;
             default:
                 return $this->getData($name);
