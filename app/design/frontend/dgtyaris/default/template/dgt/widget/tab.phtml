@@ -54,16 +54,7 @@ $template   = 'dgt/widget/collection.phtml';
     </div>
 
     <script type="text/javascript">
-        new DGT.Widget('<?php echo $id ?>', {
-            collectionUrl: '<?php echo $this->getUrl('dgtwidget/collection/get') ?>',
-            collectionCallback: function(){},
-            spinnerClass: 'spinner',
-            spinnerImg: '<?php echo $this->getSkinUrl('images/loader.gif') ?>',
-            carousel: <?php echo $this->getConfig('carousel') ?>,
-            carouselConfig: null,
-            countdown: <?php echo $this->getConfig('countdown') ?>,
-            countdownConfig: null,
-        });
+        jQuery('#<?php echo $id; ?> .owl-carousel').owlCarousel(<?php echo $this->getConfig('carousel') ?>);
     </script>
 </div>
 <?php //Mage::log(microtime() - $t) ?>

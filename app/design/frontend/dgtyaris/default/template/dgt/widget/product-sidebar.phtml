@@ -25,12 +25,6 @@ $_title             = $this->getConfig('widget_title');
 </div>
 
 <script type="text/javascript">
-    new DGT.Widget('<?php echo $_id ?>', {
-        carousel: <?php echo $this->getConfig('carousel') ?>,
-        carouselConfig: null,
-        countdown: <?php echo $this->getConfig('countdown') ?>,
-        countdownConfig: null,
-        countdownTemplate: '<div class="day"><span class="time">%d</span><span class="label">days</span></div><div class="hours"><span class="time">%h</span><span class="label">hours</span></div><div class="min"><span class="time">%i</span><span class="label">min</span></div><div class="second"><span class="time">%s</span><span class="label">secs</span></div>'
-    });
+    jQuery('#<?php echo $id; ?> .owl-carousel').owlCarousel(<?php echo $this->getConfig('carousel') ?>);
 </script>
 <?php //Mage::log(microtime() - $t) ?>

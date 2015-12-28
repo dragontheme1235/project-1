@@ -29,9 +29,6 @@ $title      = $this->getConfig('widget_title');
     </div>
 
     <script type="text/javascript">
-        new DGT.Widget('<?php echo $id ?>', {
-            carousel: <?php echo $this->getConfig('carousel') ?>,
-            carouselConfig: null
-        });
+        jQuery('#<?php echo $id; ?> .owl-carousel').owlCarousel(<?php echo $this->getConfig('carousel') ?>);
     </script>
 </div>

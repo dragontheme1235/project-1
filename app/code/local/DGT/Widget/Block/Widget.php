@@ -300,19 +300,14 @@ class DGT_Widget_Block_Widget extends Mage_Catalog_Block_Product_Abstract implem
                 break;
             case 'carousel':
                 return $helper->jsonEncode(array(
-                    'enable'        => (bool) $this->getData('scroll'),
-                    'pagination'    => (bool) $this->getData('paging'),
-                    'autoPlay'      => is_numeric($this->getData('autoplay')) ? (int) $this->getData('autoplay') : false,
                     'items'         => is_numeric($this->getData('column')) ? (int) $this->getData('column') : 4,
-                    'itemsDesktop'  => array(1199, is_numeric($this->getData('column_lg')) ? (int) $this->getData('column_lg') : 3),
-                    'itemsDesktopSmall' => array(991, is_numeric($this->getData('column_md')) ? (int) $this->getData('column_md') : 2),
-                    'singleItem'    => $this->getData('column') == 1,
-                    'lazyLoad'      => true,
-                    'lazyEffect'    => false,
-                    'addClassActive'=> true,
                     'navigation'    => (bool) $this->getData('navigation'),
                     'navigationText'=> array($this->getData('navigation_prev'), $this->getData('navigation_next')),
-                    'engineSrc'     => Mage::getBaseUrl('js') . 'dgt/extensions/jquery/plugins/owl-carousel/owl.carousel.js'
+                    'autoPlay'      => is_numeric($this->getData('autoplay')) ? (int) $this->getData('autoplay') : false,
+                    'pagination'    => (bool) $this->getData('paging'),
+                    'singleItem'    => $this->getData('column') == 1,
+                    'itemsDesktop'  => array(1199, is_numeric($this->getData('column_lg')) ? (int) $this->getData('column_lg') : 3),
+                    'itemsDesktopSmall' => array(991, is_numeric($this->getData('column_md')) ? (int) $this->getData('column_md') : 2),
                 ));
                 break;
             case 'widget_title':

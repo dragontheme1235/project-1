@@ -40,11 +40,6 @@ if($parallax_full == 1){
     </div>
 
     <script type="text/javascript">
-        document.observe("dom:loaded", function() {
-            new DGT.Widget('<?php echo $id ?>', {
-                carousel: <?php echo $this->getConfig('carousel') ?>,
-                carouselConfig: null
-            });
-        });
+        jQuery('#<?php echo $id; ?> .owl-carousel').owlCarousel(<?php echo $this->getConfig('carousel') ?>);
     </script>
 </div>

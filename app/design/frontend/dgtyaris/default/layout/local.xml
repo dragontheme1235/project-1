@@ -27,6 +27,7 @@
 
             <action method="addJs" ifconfig="dgtnewsletter/display_options/enable"><script>dgtthemes/jquery/plugins/jquery.cookie.js</script></action>
 
+            <action method="addJs"><script>dgt/extensions/jquery/plugins/owl-carousel/owl.carousel.js</script></action>
             <action method="addJs"><script>dgt/widget/front-end.min.js</script></action>
 
             <!-- CSS: -->
